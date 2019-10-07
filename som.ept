@@ -1,0 +1,46 @@
+
+node caixa(c:bool) returns(ligado:bool)
+let 
+    automaton
+    state Off do 
+      ligado=false;
+     unless not c then ON
+    state ON do 
+      ligado=true;
+    unless c then Off
+  end
+ tel
+
+node music(tipo:int) returns(res:int)
+let
+    automaton
+    state Indefinido do
+        res = 0;
+    unless tipo = 1 then Classic |
+           tipo = 2 then Rock 
+    state Classic do
+        res = 1;
+    unless tipo = 2 then Rock 
+    state Rock do
+        res = 2;
+    unless tipo = 1 then Classic
+    end
+tel
+
+node main(tipo:int) returns(cx1,cx2,cx3:bool; res:int)
+contract
+    var rule1, rule2: bool;
+    let 
+        rule1 = not (res = 1) or (cx1 & cx2 & cx3); (*classic*)
+        rule2 = not (res = 2) or (not cx1 & cx2 & cx3); (*rock*)
+    tel
+    enforce rule1 & rule2
+    with (c1,c2,c3: bool)
+
+let 
+    res = inlined music(tipo);
+    cx1 = inlined caixa(c1);
+    cx2 = inlined caixa(c2);
+    cx3 = inlined caixa(c3);
+tel
+
