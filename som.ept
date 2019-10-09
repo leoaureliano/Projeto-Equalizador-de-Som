@@ -14,27 +14,98 @@ let
 node music(tipo:int) returns(res:int)
 let
     automaton
-    state Indefinido do
+    state Off do
         res = 0;
     unless tipo = 1 then Classic |
-           tipo = 2 then Rock 
+           tipo = 2 then Electronic|
+           tipo = 3 then Funk|
+           tipo = 4 then Indie|
+           tipo = 5 then POP|
+           tipo = 6 then Regue|
+           tipo = 7 then Rock
     state Classic do
         res = 1;
-    unless tipo = 2 then Rock 
-    state Rock do
+    unless tipo = 0 then Off|
+           tipo = 2 then Electronic|
+           tipo = 3 then Funk|
+           tipo = 4 then Indie|
+           tipo = 5 then POP|
+           tipo = 6 then Regue|
+           tipo = 7 then Rock
+
+    state Electronic do
         res = 2;
-    unless tipo = 1 then Classic
+    unless tipo = 0 then Off|
+           tipo = 1 then Classic|
+           tipo = 3 then Funk|
+           tipo = 4 then Indie|
+           tipo = 5 then POP|
+           tipo = 6 then Regue|
+           tipo = 7 then Rock
+    state Funk do
+        res = 3;
+    unless tipo = 0 then Off|
+           tipo = 1 then Classic|
+           tipo = 2 then Electronic|
+           tipo = 4 then Indie|
+           tipo = 5 then POP|
+           tipo = 6 then Regue|
+           tipo = 7 then Rock
+    state Indie do
+        res = 4;
+    unless tipo = 0 then Off|
+           tipo = 1 then Classic|
+           tipo = 2 then Electronic|
+           tipo = 3 then Funk|
+           tipo = 5 then POP|
+           tipo = 6 then Regue|
+           tipo = 7 then Rock
+    state POP do
+        res = 5;
+    unless tipo = 0 then Off|
+           tipo = 1 then Classic|
+           tipo = 2 then Electronic|
+           tipo = 3 then Funk|
+           tipo = 4 then Indie|
+           tipo = 6 then Regue|
+           tipo = 7 then Rock
+    state Regue do
+        res = 6;
+    unless tipo = 0 then Off|
+           tipo = 1 then Classic|
+           tipo = 2 then Electronic|
+           tipo = 3 then Funk|
+           tipo = 4 then Indie|
+           tipo = 5 then POP|
+           tipo = 7 then Rock
+    state Rock do
+        res = 7;
+    unless tipo = 0 then Off|
+           tipo = 1 then Classic|
+           tipo = 2 then Electronic|
+           tipo = 3 then Funk|
+           tipo = 4 then Indie|
+           tipo = 5 then POP|
+           tipo = 6 then Regue
+
     end
 tel
 
 node main(tipo:int) returns(cx1,cx2,cx3:bool; res:int)
 contract
-    var rule1, rule2: bool;
+    var ruleOff, ruleClassic, ruleElectron, ruleFunk, ruleIndie, rulePOP,ruleRegue ,ruleRock: bool;
     let 
-        rule1 = not (res = 1) or (cx1 & cx2 & cx3); (*classic*)
-        rule2 = not (res = 2) or (not cx1 & cx2 & cx3); (*rock*)
+        ruleOff = not (res = 0) or (not cx1 & not cx2 & not cx3); (*All Off*)
+        ruleClassic = not (res = 1) or (cx1 & not cx2 & not cx3); (*Classic*)
+        ruleElectron = not (res = 2) or (not cx1 & cx2 & not cx3); (*Electron*)
+        ruleFunk = not (res = 3) or (not cx1 & not cx2 & cx3); (*Funk*)
+        ruleIndie = not (res = 4) or (not cx1 & cx2 & cx3); (*Indie*)
+        rulePOP = not (res = 5) or (cx1 & not cx2 & cx3); (*POP*)
+        ruleRegue = not (res = 6) or (cx1 & cx2 & not cx3); (*Regue*)
+        ruleRock = not (res = 7) or (cx1 & cx2 & cx3); (*Rock*)
+
     tel
-    enforce rule1 & rule2
+    enforce ruleOff & ruleClassic & ruleElectron & ruleFunk & ruleIndie & rulePOP & ruleRegue& ruleRock 
     with (c1,c2,c3: bool)
 
 let 
