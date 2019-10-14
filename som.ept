@@ -1,4 +1,3 @@
-
 node caixa(c:bool) returns(ligado:bool)
 let 
     automaton
@@ -10,6 +9,60 @@ let
     unless c then Off
   end
  tel
+
+ node equala(agu1,agu2:bool) returns(agudo:int)
+ let  
+    automaton
+    state Low do
+      agudo = 10
+    unless not agu1 = true then Mid|
+           not agu2 = true then High
+    state Mid do
+      agudo = 60
+    unless not agu2 = true then High|
+           agu1 = true then Low
+    state High do
+      agudo = 90
+    unless agu2 = true then Low|
+           agu1 = true then Mid
+  end
+tel
+
+node equalm(mid1,mid2:bool) returns(medio:int)
+let
+  automaton
+  state Low do 
+    medio = 10
+  unless not mid1 = true then Mid|
+         not mid2 = true then High
+  state Mid do
+    medio = 60
+  unless not mid2 = true then High|
+         mid1 = true then Low
+  state High do
+    medio = 90
+  unless mid2 = true then Low|
+         mid1 = true then Mid
+  end
+tel 
+
+node equalg(high1,high2:bool) returns(grave:int)
+let
+  automaton
+  state Low do
+   grave = 10
+  unless not high1 = true then Mid|
+         not high2 = true then High
+  state Mid do
+   grave = 60
+  unless not high2 = true then High|
+         high1 = true then Low
+  state High do 
+   grave = 90
+  unless high2 = true then Low|
+         high1 = true then Mid
+  end
+tel
 
 node music(tipo:int) returns(res:int)
 let
@@ -91,27 +144,29 @@ let
     end
 tel
 
-node main(tipo:int) returns(cx1,cx2,cx3:bool; res:int)
+node main(tipo:int) returns(cx1,cx2,cx3:bool; res,agudo,medio,grave:int)
 contract
     var ruleOff, ruleClassic, ruleElectron, ruleFunk, ruleIndie, rulePOP,ruleRegue ,ruleRock: bool;
     let 
         ruleOff = not (res = 0) or (not cx1 & not cx2 & not cx3); (*All Off*)
-        ruleClassic = not (res = 1) or (cx1 & not cx2 & not cx3); (*Classic*)
-        ruleElectron = not (res = 2) or (not cx1 & cx2 & not cx3); (*Electron*)
-        ruleFunk = not (res = 3) or (not cx1 & not cx2 & cx3); (*Funk*)
-        ruleIndie = not (res = 4) or (not cx1 & cx2 & cx3); (*Indie*)
-        rulePOP = not (res = 5) or (cx1 & not cx2 & cx3); (*POP*)
-        ruleRegue = not (res = 6) or (cx1 & cx2 & not cx3); (*Regue*)
-        ruleRock = not (res = 7) or (cx1 & cx2 & cx3); (*Rock*)
+        ruleClassic = not (res = 1) or (cx1 & not cx2 & not cx3) & (agudo < 30 & medio < 30 & grave < 30); (*Classic*)
+        ruleElectron = not (res = 2) or (not cx1 & cx2 & not cx3) & (30 <= agudo >= 60  & medio < 30 & grave < 30); (*Electron*)
+        ruleFunk = not (res = 3) or (not cx1 & not cx2 & cx3) & (30 <= agudo >= 60 & 30 <= medio >= 60 &  grave < 30); (*Funk*)
+        ruleIndie = not (res = 4) or (not cx1 & cx2 & cx3) & (30 <= agudo > 60 & 30 <= medio >= 60 & 30 <= grave >= 60); (*Indie*)
+        rulePOP = not (res = 5) or (cx1 & not cx2 & cx3) & (agudo >= 60 & 30 <= medio >= 60 & 30 <= grave >= 60); (*POP*)
+        ruleRegue = not (res = 6) or (cx1 & cx2 & not cx3) & (agudo > 60 & medio > 60 & 30 <= grave >= 60);(*Regue*)
+        ruleRock = not (res = 7) or (cx1 & cx2 & cx3) & (agudo > 60 & medio > 60 & grave > 60);(*Rock*)
 
     tel
     enforce ruleOff & ruleClassic & ruleElectron & ruleFunk & ruleIndie & rulePOP & ruleRegue& ruleRock 
-    with (c1,c2,c3: bool)
+    with (c1,c2,c3: bool;)
 
 let 
     res = inlined music(tipo);
     cx1 = inlined caixa(c1);
     cx2 = inlined caixa(c2);
     cx3 = inlined caixa(c3);
+    agudo = inlined equala(agudo);
+    medio = inlined equalm(medio);
+    grave = inlined equalg(grave);
 tel
-
