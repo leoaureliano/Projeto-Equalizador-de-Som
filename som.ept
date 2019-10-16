@@ -114,6 +114,7 @@ contract
     let 
         ruleOff = not (res = 0) or (not cx1 & not cx2 & not cx3); (*All Off*)
         ruleClassic = not (res = 1) or (cx1 & not cx2 & not cx3) & (agudo < 30 & medio < 30 & grave < 30); (*Classic*)
+<<<<<<< HEAD
         ruleElectron = true; (*not (res = 2) or (not cx1 & cx2 & not cx3) & (30 <= agudo & agudo <= 60  & medio < 30 & grave < 30); (*Electron*) *)
         ruleFunk = true; (*not (res = 3) or (not cx1 & not cx2 & cx3) & (30 <= agudo & agudo <= 60 & 30 <= medio & agudo <= 60 &  grave < 30); (*Funk*) *)
         ruleIndie = true; (* not (res = 4) or (not cx1 & cx2 & cx3) & (30 <= agudo & agudo <= 60 & 30 <= medio & medio <= 60 & 30 <= grave & grave <= 60); (*Indie*) *)
@@ -124,13 +125,31 @@ contract
     tel
     enforce ruleOff & ruleClassic & ruleElectron & ruleFunk & ruleIndie & rulePOP & ruleRegue & ruleRock 
     with (c1,c2,c3,cea1,cea2,cem1,cem2,ceg1,ceg2:bool)
+=======
+        ruleElectron = not (res = 2) or (not cx1 & cx2 & not cx3) & (30 <= agudo >= 60  & medio < 30 & grave < 30); (*Electron*)
+        ruleFunk = not (res = 3) or (not cx1 & not cx2 & cx3) & (30 <= agudo >= 60 & 30 <= medio >= 60 &  grave < 30); (*Funk*)
+        ruleIndie = not (res = 4) or (not cx1 & cx2 & cx3) & (30 <= agudo > 60 & 30 <= medio >= 60 & 30 <= grave >= 60); (*Indie*)
+        rulePOP = not (res = 5) or (cx1 & not cx2 & cx3) & (agudo >= 60 & 30 <= medio >= 60 & 30 <= grave >= 60); (*POP*)
+        ruleRegue = not (res = 6) or (cx1 & cx2 & not cx3) & (agudo > 60 & medio > 60 & 30 <= grave >= 60);(*Regue*)
+        ruleRock = not (res = 7) or (cx1 & cx2 & cx3) & (agudo > 60 & medio > 60 & grave > 60);(*Rock*)
+
+    tel
+    enforce ruleOff & ruleClassic & ruleElectron & ruleFunk & ruleIndie & rulePOP & ruleRegue& ruleRock 
+    with (c1,c2,c3: bool;)
+>>>>>>> 5cc9d5f11b730e3788620aa6856c3a2060e14f25
 
 let 
     res = inlined music(tipo);
     cx1 = inlined caixa(c1);
     cx2 = inlined caixa(c2);
     cx3 = inlined caixa(c3);
+<<<<<<< HEAD
     agudo = inlined equalisador(cea1,cea2);
     medio = inlined equalisador(cem1,cem2);
     grave = inlined equalisador(ceg1,ceg2);
+=======
+    agudo = inlined equala(agudo);
+    medio = inlined equalm(medio);
+    grave = inlined equalg(grave);
+>>>>>>> 5cc9d5f11b730e3788620aa6856c3a2060e14f25
 tel
