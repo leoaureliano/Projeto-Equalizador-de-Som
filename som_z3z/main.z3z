@@ -1,0 +1,1408 @@
+% --- Generated the 21/10/2019 at 10:51 --- %
+% --- heptagon compiler, version 1.03.00 (compiled thu. may. 3 2:35:29 CET 2018) --- %
+% --- Command line: /usr/local/bin/heptc -target c -target z3z -s main som.ept --- %
+
+set_reorder(2);read("Property.lib");read("Synthesis.lib");read("Verif_Determ.lib");read("Simul.lib");read("Synthesis_Partial_order.lib");read("Orbite.lib");
+% -- dependencies --- %
+
+% ---------- process main ---------- %
+
+declare(main_v_258, main_v_259, main_v_260, main_v_261, main_v_262,
+        main_v_263, main_v_264, main_v_277, main_v_278, main_v_279,
+        main_v_280, main_v_281, main_v_282, main_v_283, main_v_296,
+        main_v_297, main_v_298, main_v_299, main_v_300, main_v_301,
+        main_v_302, main_v_391, main_v_392, main_v_393, main_v_394,
+        main_v_395, main_v_396, main_v_397, main_v_315, main_v_316,
+        main_v_317, main_v_318, main_v_319, main_v_320, main_v_321,
+        main_v_334, main_v_335, main_v_336, main_v_337, main_v_338,
+        main_v_339, main_v_340, main_v_353, main_v_354, main_v_355,
+        main_v_356, main_v_357, main_v_358, main_v_359, main_v_372,
+        main_v_373, main_v_374, main_v_375, main_v_376, main_v_377,
+        main_v_378, main_ceg2, main_ceg1, main_cem2, main_cem1, main_cea2,
+        main_cea1, main_c3, main_c2, main_c1, main_v_611, main_v_610,
+        main_v_609, main_pnr_6, main_ck_5_1, main_pnr_5, main_ck_7_1,
+        main_pnr_4, main_ck_9_1, main_pnr_3, main_v_572, main_v_571,
+        main_pnr_2, main_v_556, main_v_555, main_pnr_1, main_v_540,
+        main_v_539, main_pnr, main_error_state);
+conditions : [main_v_258, main_v_259, main_v_260, main_v_261, main_v_262,
+              main_v_263, main_v_264, main_v_277, main_v_278, main_v_279,
+              main_v_280, main_v_281, main_v_282, main_v_283, main_v_296,
+              main_v_297, main_v_298, main_v_299, main_v_300, main_v_301,
+              main_v_302, main_v_391, main_v_392, main_v_393, main_v_394,
+              main_v_395, main_v_396, main_v_397, main_v_315, main_v_316,
+              main_v_317, main_v_318, main_v_319, main_v_320, main_v_321,
+              main_v_334, main_v_335, main_v_336, main_v_337, main_v_338,
+              main_v_339, main_v_340, main_v_353, main_v_354, main_v_355,
+              main_v_356, main_v_357, main_v_358, main_v_359, main_v_372,
+              main_v_373, main_v_374, main_v_375, main_v_376, main_v_377,
+              main_v_378, main_ceg2, main_ceg1, main_cem2, main_cem1,
+              main_cea2, main_cea1, main_c3, main_c2, main_c1];
+states : [main_v_611, main_v_610, main_v_609, main_pnr_6, main_ck_5_1,
+          main_pnr_5, main_ck_7_1, main_pnr_4, main_ck_9_1, main_pnr_3,
+          main_v_572, main_v_571, main_pnr_2, main_v_556, main_v_555,
+          main_pnr_1, main_v_540, main_v_539, main_pnr, main_error_state];
+controllables : [main_ceg2, main_ceg1, main_cem2, main_cem1, main_cea2,
+                 main_cea1, main_c3, main_c2, main_c1];
+evolutions : [];
+initialisations : [];
+main_ck_3 : main_v_611;
+main_ck_2 : main_v_610;
+main_ck_1 : main_v_609;
+main_c : main_c1;
+main_c_1 : main_c2;
+main_c_2 : main_c3;
+main_ck_11_2 : main_v_572;
+main_ck_11_1 : main_v_571;
+main_c2_1 : main_cea2;
+main_c1_1 : main_cea1;
+main_ck_13_2 : main_v_556;
+main_ck_13_1 : main_v_555;
+main_c2_2 : main_cem2;
+main_c1_2 : main_cem1;
+main_ck_15_2 : main_v_540;
+main_ck_15_1 : main_v_539;
+main_c2_3 : main_ceg2;
+main_c1_3 : main_ceg1;
+main_ck_2_0 : main_ck_2;
+main_ck_2_1 : main_ck_2;
+main_ck_3_0_0 : main_ck_3;
+main_ck_3_0_1 : main_ck_3;
+main_ck_3_1_0 : main_ck_3;
+main_ck_3_1_1 : main_ck_3;
+main_v_265_3 : ((1 when main_v_264) default -1);
+main_v_265_2 : ((-1 when main_v_264) default -1);
+main_v_265_1 : ((-1 when main_v_264) default -1);
+main_v_266 : ((1 when main_v_264) default main_pnr_6);
+main_v_267_3 : ((-1 when main_v_263) default main_v_265_3);
+main_v_267_2 : ((1 when main_v_263) default main_v_265_2);
+main_v_267_1 : ((-1 when main_v_263) default main_v_265_1);
+main_v_268 : ((1 when main_v_263) default main_v_266);
+main_v_269_3 : ((-1 when main_v_262) default main_v_267_3);
+main_v_269_2 : ((-1 when main_v_262) default main_v_267_2);
+main_v_269_1 : ((1 when main_v_262) default main_v_267_1);
+main_v_270 : ((1 when main_v_262) default main_v_268);
+main_v_271_3 : ((1 when main_v_261) default main_v_269_3);
+main_v_271_2 : ((-1 when main_v_261) default main_v_269_2);
+main_v_271_1 : ((1 when main_v_261) default main_v_269_1);
+main_v_272 : ((1 when main_v_261) default main_v_270);
+main_v_273_3 : ((-1 when main_v_260) default main_v_271_3);
+main_v_273_2 : ((1 when main_v_260) default main_v_271_2);
+main_v_273_1 : ((1 when main_v_260) default main_v_271_1);
+main_v_274 : ((1 when main_v_260) default main_v_272);
+main_v_275_3 : ((1 when main_v_259) default main_v_273_3);
+main_v_275_2 : ((1 when main_v_259) default main_v_273_2);
+main_v_275_1 : ((1 when main_v_259) default main_v_273_1);
+main_v_276 : ((1 when main_v_259) default main_v_274);
+main_s_10_St_9_Rock_3 : ((1 when main_v_258) default main_v_275_3);
+main_s_10_St_9_Rock_2 : ((1 when main_v_258) default main_v_275_2);
+main_s_10_St_9_Rock_1 : ((-1 when main_v_258) default main_v_275_1);
+main_r_6_St_9_Rock : ((1 when main_v_258) default main_v_276);
+main_v_284_3 : ((-1 when main_v_283) default 1);
+main_v_284_2 : ((-1 when main_v_283) default -1);
+main_v_284_1 : ((-1 when main_v_283) default -1);
+main_v_285 : ((1 when main_v_283) default main_pnr_6);
+main_v_286_3 : ((-1 when main_v_282) default main_v_284_3);
+main_v_286_2 : ((1 when main_v_282) default main_v_284_2);
+main_v_286_1 : ((-1 when main_v_282) default main_v_284_1);
+main_v_287 : ((1 when main_v_282) default main_v_285);
+main_v_288_3 : ((-1 when main_v_281) default main_v_286_3);
+main_v_288_2 : ((-1 when main_v_281) default main_v_286_2);
+main_v_288_1 : ((1 when main_v_281) default main_v_286_1);
+main_v_289 : ((1 when main_v_281) default main_v_287);
+main_v_290_3 : ((1 when main_v_280) default main_v_288_3);
+main_v_290_2 : ((-1 when main_v_280) default main_v_288_2);
+main_v_290_1 : ((1 when main_v_280) default main_v_288_1);
+main_v_291 : ((1 when main_v_280) default main_v_289);
+main_v_292_3 : ((-1 when main_v_279) default main_v_290_3);
+main_v_292_2 : ((1 when main_v_279) default main_v_290_2);
+main_v_292_1 : ((1 when main_v_279) default main_v_290_1);
+main_v_293 : ((1 when main_v_279) default main_v_291);
+main_v_294_3 : ((1 when main_v_278) default main_v_292_3);
+main_v_294_2 : ((1 when main_v_278) default main_v_292_2);
+main_v_294_1 : ((1 when main_v_278) default main_v_292_1);
+main_v_295 : ((1 when main_v_278) default main_v_293);
+main_s_10_St_9_Regue_3 : ((1 when main_v_277) default main_v_294_3);
+main_v_623 : ((main_s_10_St_9_Regue_3 when main_ck_3_0_0)
+  default main_s_10_St_9_Rock_3);
+main_s_10_St_9_Regue_2 : ((1 when main_v_277) default main_v_294_2);
+main_v_622 : ((main_s_10_St_9_Regue_2 when main_ck_3_0_0)
+  default main_s_10_St_9_Rock_2);
+main_s_10_St_9_Regue_1 : ((-1 when main_v_277) default main_v_294_1);
+main_v_621 : ((main_s_10_St_9_Regue_1 when main_ck_3_0_0)
+  default main_s_10_St_9_Rock_1);
+main_r_6_St_9_Regue : ((1 when main_v_277) default main_v_295);
+main_v_634 : ((main_r_6_St_9_Regue when main_ck_3_0_0)
+  default main_r_6_St_9_Rock);
+main_s_10_St_9_Rock_2_0 : main_s_10_St_9_Rock_2;
+main_s_10_St_9_Rock_2_1 : main_s_10_St_9_Rock_2;
+main_s_10_St_9_Rock_3_0_0 : main_s_10_St_9_Rock_3;
+main_s_10_St_9_Rock_3_0_1 : main_s_10_St_9_Rock_3;
+main_s_10_St_9_Rock_3_1_0 : main_s_10_St_9_Rock_3;
+main_s_10_St_9_Rock_3_1_1 : main_s_10_St_9_Rock_3;
+main_s_10_St_9_Regue_2_0 : main_s_10_St_9_Regue_2;
+main_s_10_St_9_Regue_2_1 : main_s_10_St_9_Regue_2;
+main_s_10_St_9_Regue_3_0_0 : main_s_10_St_9_Regue_3;
+main_s_10_St_9_Regue_3_0_1 : main_s_10_St_9_Regue_3;
+main_s_10_St_9_Regue_3_1_0 : main_s_10_St_9_Regue_3;
+main_s_10_St_9_Regue_3_1_1 : main_s_10_St_9_Regue_3;
+main_v_275_2_0 : main_v_275_2;
+main_v_275_2_1 : main_v_275_2;
+main_v_275_3_0_0 : main_v_275_3;
+main_v_275_3_0_1 : main_v_275_3;
+main_v_275_3_1_0 : main_v_275_3;
+main_v_275_3_1_1 : main_v_275_3;
+main_v_273_2_0 : main_v_273_2;
+main_v_273_2_1 : main_v_273_2;
+main_v_273_3_0_0 : main_v_273_3;
+main_v_273_3_0_1 : main_v_273_3;
+main_v_273_3_1_0 : main_v_273_3;
+main_v_273_3_1_1 : main_v_273_3;
+main_v_271_2_0 : main_v_271_2;
+main_v_271_2_1 : main_v_271_2;
+main_v_271_3_0_0 : main_v_271_3;
+main_v_271_3_0_1 : main_v_271_3;
+main_v_271_3_1_0 : main_v_271_3;
+main_v_271_3_1_1 : main_v_271_3;
+main_v_269_2_0 : main_v_269_2;
+main_v_269_2_1 : main_v_269_2;
+main_v_269_3_0_0 : main_v_269_3;
+main_v_269_3_0_1 : main_v_269_3;
+main_v_269_3_1_0 : main_v_269_3;
+main_v_269_3_1_1 : main_v_269_3;
+main_v_267_2_0 : main_v_267_2;
+main_v_267_2_1 : main_v_267_2;
+main_v_267_3_0_0 : main_v_267_3;
+main_v_267_3_0_1 : main_v_267_3;
+main_v_267_3_1_0 : main_v_267_3;
+main_v_267_3_1_1 : main_v_267_3;
+main_v_265_2_0 : main_v_265_2;
+main_v_265_2_1 : main_v_265_2;
+main_v_265_3_0_0 : main_v_265_3;
+main_v_265_3_0_1 : main_v_265_3;
+main_v_265_3_1_0 : main_v_265_3;
+main_v_265_3_1_1 : main_v_265_3;
+main_v_294_2_0 : main_v_294_2;
+main_v_294_2_1 : main_v_294_2;
+main_v_294_3_0_0 : main_v_294_3;
+main_v_294_3_0_1 : main_v_294_3;
+main_v_294_3_1_0 : main_v_294_3;
+main_v_294_3_1_1 : main_v_294_3;
+main_v_292_2_0 : main_v_292_2;
+main_v_292_2_1 : main_v_292_2;
+main_v_292_3_0_0 : main_v_292_3;
+main_v_292_3_0_1 : main_v_292_3;
+main_v_292_3_1_0 : main_v_292_3;
+main_v_292_3_1_1 : main_v_292_3;
+main_v_290_2_0 : main_v_290_2;
+main_v_290_2_1 : main_v_290_2;
+main_v_290_3_0_0 : main_v_290_3;
+main_v_290_3_0_1 : main_v_290_3;
+main_v_290_3_1_0 : main_v_290_3;
+main_v_290_3_1_1 : main_v_290_3;
+main_v_288_2_0 : main_v_288_2;
+main_v_288_2_1 : main_v_288_2;
+main_v_288_3_0_0 : main_v_288_3;
+main_v_288_3_0_1 : main_v_288_3;
+main_v_288_3_1_0 : main_v_288_3;
+main_v_288_3_1_1 : main_v_288_3;
+main_v_286_2_0 : main_v_286_2;
+main_v_286_2_1 : main_v_286_2;
+main_v_286_3_0_0 : main_v_286_3;
+main_v_286_3_0_1 : main_v_286_3;
+main_v_286_3_1_0 : main_v_286_3;
+main_v_286_3_1_1 : main_v_286_3;
+main_v_284_2_0 : main_v_284_2;
+main_v_284_2_1 : main_v_284_2;
+main_v_284_3_0_0 : main_v_284_3;
+main_v_284_3_0_1 : main_v_284_3;
+main_v_284_3_1_0 : main_v_284_3;
+main_v_284_3_1_1 : main_v_284_3;
+main_v_303_3 : ((-1 when main_v_302) default -1);
+main_v_303_2 : ((-1 when main_v_302) default 1);
+main_v_303_1 : ((-1 when main_v_302) default -1);
+main_v_304 : ((1 when main_v_302) default main_pnr_6);
+main_v_305_3 : ((1 when main_v_301) default main_v_303_3);
+main_v_305_2 : ((-1 when main_v_301) default main_v_303_2);
+main_v_305_1 : ((-1 when main_v_301) default main_v_303_1);
+main_v_306 : ((1 when main_v_301) default main_v_304);
+main_v_307_3 : ((-1 when main_v_300) default main_v_305_3);
+main_v_307_2 : ((-1 when main_v_300) default main_v_305_2);
+main_v_307_1 : ((1 when main_v_300) default main_v_305_1);
+main_v_308 : ((1 when main_v_300) default main_v_306);
+main_v_309_3 : ((1 when main_v_299) default main_v_307_3);
+main_v_309_2 : ((-1 when main_v_299) default main_v_307_2);
+main_v_309_1 : ((1 when main_v_299) default main_v_307_1);
+main_v_310 : ((1 when main_v_299) default main_v_308);
+main_v_311_3 : ((-1 when main_v_298) default main_v_309_3);
+main_v_311_2 : ((1 when main_v_298) default main_v_309_2);
+main_v_311_1 : ((1 when main_v_298) default main_v_309_1);
+main_v_312 : ((1 when main_v_298) default main_v_310);
+main_v_313_3 : ((1 when main_v_297) default main_v_311_3);
+main_v_313_2 : ((1 when main_v_297) default main_v_311_2);
+main_v_313_1 : ((1 when main_v_297) default main_v_311_1);
+main_v_314 : ((1 when main_v_297) default main_v_312);
+main_s_10_St_9_POP_3 : ((1 when main_v_296) default main_v_313_3);
+main_s_10_St_9_POP_2 : ((1 when main_v_296) default main_v_313_2);
+main_s_10_St_9_POP_1 : ((-1 when main_v_296) default main_v_313_1);
+main_r_6_St_9_POP : ((1 when main_v_296) default main_v_314);
+main_v_398_3 : ((-1 when main_v_397) default 1);
+main_v_398_2 : ((-1 when main_v_397) default 1);
+main_v_398_1 : ((-1 when main_v_397) default -1);
+main_v_399 : ((1 when main_v_397) default main_pnr_6);
+main_v_400_3 : ((1 when main_v_396) default main_v_398_3);
+main_v_400_2 : ((-1 when main_v_396) default main_v_398_2);
+main_v_400_1 : ((-1 when main_v_396) default main_v_398_1);
+main_v_401 : ((1 when main_v_396) default main_v_399);
+main_v_402_3 : ((-1 when main_v_395) default main_v_400_3);
+main_v_402_2 : ((1 when main_v_395) default main_v_400_2);
+main_v_402_1 : ((-1 when main_v_395) default main_v_400_1);
+main_v_403 : ((1 when main_v_395) default main_v_401);
+main_v_404_3 : ((-1 when main_v_394) default main_v_402_3);
+main_v_404_2 : ((-1 when main_v_394) default main_v_402_2);
+main_v_404_1 : ((1 when main_v_394) default main_v_402_1);
+main_v_405 : ((1 when main_v_394) default main_v_403);
+main_v_406_3 : ((1 when main_v_393) default main_v_404_3);
+main_v_406_2 : ((-1 when main_v_393) default main_v_404_2);
+main_v_406_1 : ((1 when main_v_393) default main_v_404_1);
+main_v_407 : ((1 when main_v_393) default main_v_405);
+main_v_408_3 : ((-1 when main_v_392) default main_v_406_3);
+main_v_408_2 : ((1 when main_v_392) default main_v_406_2);
+main_v_408_1 : ((1 when main_v_392) default main_v_406_1);
+main_v_409 : ((1 when main_v_392) default main_v_407);
+main_s_10_St_9_Off_3 : ((1 when main_v_391) default main_v_408_3);
+main_v_620 : ((main_s_10_St_9_Off_3 when main_ck_3_0_1)
+  default main_s_10_St_9_POP_3);
+main_s_10_St_9_Off_2 : ((1 when main_v_391) default main_v_408_2);
+main_v_619 : ((main_s_10_St_9_Off_2 when main_ck_3_0_1)
+  default main_s_10_St_9_POP_2);
+main_s_10_St_9_Off_1 : ((1 when main_v_391) default main_v_408_1);
+main_v_618 : ((main_s_10_St_9_Off_1 when main_ck_3_0_1)
+  default main_s_10_St_9_POP_1);
+main_r_6_St_9_Off : ((1 when main_v_391) default main_v_409);
+main_v_633 : ((main_r_6_St_9_Off when main_ck_3_0_1)
+  default main_r_6_St_9_POP);
+main_s_10_St_9_POP_2_0 : main_s_10_St_9_POP_2;
+main_s_10_St_9_POP_2_1 : main_s_10_St_9_POP_2;
+main_s_10_St_9_POP_3_0_0 : main_s_10_St_9_POP_3;
+main_s_10_St_9_POP_3_0_1 : main_s_10_St_9_POP_3;
+main_s_10_St_9_POP_3_1_0 : main_s_10_St_9_POP_3;
+main_s_10_St_9_POP_3_1_1 : main_s_10_St_9_POP_3;
+main_s_10_St_9_Off_2_0 : main_s_10_St_9_Off_2;
+main_s_10_St_9_Off_2_1 : main_s_10_St_9_Off_2;
+main_s_10_St_9_Off_3_0_0 : main_s_10_St_9_Off_3;
+main_s_10_St_9_Off_3_0_1 : main_s_10_St_9_Off_3;
+main_s_10_St_9_Off_3_1_0 : main_s_10_St_9_Off_3;
+main_s_10_St_9_Off_3_1_1 : main_s_10_St_9_Off_3;
+main_v_635 : ((main_v_633 when main_ck_2_0) default main_v_634);
+main_v_629 : ((main_v_620 when main_ck_2_0) default main_v_623);
+main_v_628 : ((main_v_619 when main_ck_2_0) default main_v_622);
+main_v_627 : ((main_v_618 when main_ck_2_0) default main_v_621);
+main_v_313_2_0 : main_v_313_2;
+main_v_313_2_1 : main_v_313_2;
+main_v_313_3_0_0 : main_v_313_3;
+main_v_313_3_0_1 : main_v_313_3;
+main_v_313_3_1_0 : main_v_313_3;
+main_v_313_3_1_1 : main_v_313_3;
+main_v_311_2_0 : main_v_311_2;
+main_v_311_2_1 : main_v_311_2;
+main_v_311_3_0_0 : main_v_311_3;
+main_v_311_3_0_1 : main_v_311_3;
+main_v_311_3_1_0 : main_v_311_3;
+main_v_311_3_1_1 : main_v_311_3;
+main_v_309_2_0 : main_v_309_2;
+main_v_309_2_1 : main_v_309_2;
+main_v_309_3_0_0 : main_v_309_3;
+main_v_309_3_0_1 : main_v_309_3;
+main_v_309_3_1_0 : main_v_309_3;
+main_v_309_3_1_1 : main_v_309_3;
+main_v_307_2_0 : main_v_307_2;
+main_v_307_2_1 : main_v_307_2;
+main_v_307_3_0_0 : main_v_307_3;
+main_v_307_3_0_1 : main_v_307_3;
+main_v_307_3_1_0 : main_v_307_3;
+main_v_307_3_1_1 : main_v_307_3;
+main_v_305_2_0 : main_v_305_2;
+main_v_305_2_1 : main_v_305_2;
+main_v_305_3_0_0 : main_v_305_3;
+main_v_305_3_0_1 : main_v_305_3;
+main_v_305_3_1_0 : main_v_305_3;
+main_v_305_3_1_1 : main_v_305_3;
+main_v_303_2_0 : main_v_303_2;
+main_v_303_2_1 : main_v_303_2;
+main_v_303_3_0_0 : main_v_303_3;
+main_v_303_3_0_1 : main_v_303_3;
+main_v_303_3_1_0 : main_v_303_3;
+main_v_303_3_1_1 : main_v_303_3;
+main_v_322_3 : ((-1 when main_v_321) default -1);
+main_v_322_2 : ((-1 when main_v_321) default -1);
+main_v_322_1 : ((-1 when main_v_321) default 1);
+main_v_323 : ((1 when main_v_321) default main_pnr_6);
+main_v_324_3 : ((1 when main_v_320) default main_v_322_3);
+main_v_324_2 : ((-1 when main_v_320) default main_v_322_2);
+main_v_324_1 : ((-1 when main_v_320) default main_v_322_1);
+main_v_325 : ((1 when main_v_320) default main_v_323);
+main_v_326_3 : ((-1 when main_v_319) default main_v_324_3);
+main_v_326_2 : ((1 when main_v_319) default main_v_324_2);
+main_v_326_1 : ((-1 when main_v_319) default main_v_324_1);
+main_v_327 : ((1 when main_v_319) default main_v_325);
+main_v_328_3 : ((1 when main_v_318) default main_v_326_3);
+main_v_328_2 : ((-1 when main_v_318) default main_v_326_2);
+main_v_328_1 : ((1 when main_v_318) default main_v_326_1);
+main_v_329 : ((1 when main_v_318) default main_v_327);
+main_v_330_3 : ((-1 when main_v_317) default main_v_328_3);
+main_v_330_2 : ((1 when main_v_317) default main_v_328_2);
+main_v_330_1 : ((1 when main_v_317) default main_v_328_1);
+main_v_331 : ((1 when main_v_317) default main_v_329);
+main_v_332_3 : ((1 when main_v_316) default main_v_330_3);
+main_v_332_2 : ((1 when main_v_316) default main_v_330_2);
+main_v_332_1 : ((1 when main_v_316) default main_v_330_1);
+main_v_333 : ((1 when main_v_316) default main_v_331);
+main_s_10_St_9_Indie_3 : ((1 when main_v_315) default main_v_332_3);
+main_s_10_St_9_Indie_2 : ((1 when main_v_315) default main_v_332_2);
+main_s_10_St_9_Indie_1 : ((-1 when main_v_315) default main_v_332_1);
+main_r_6_St_9_Indie : ((1 when main_v_315) default main_v_333);
+main_v_341_3 : ((-1 when main_v_340) default 1);
+main_v_341_2 : ((-1 when main_v_340) default -1);
+main_v_341_1 : ((-1 when main_v_340) default 1);
+main_v_342 : ((1 when main_v_340) default main_pnr_6);
+main_v_343_3 : ((1 when main_v_339) default main_v_341_3);
+main_v_343_2 : ((-1 when main_v_339) default main_v_341_2);
+main_v_343_1 : ((-1 when main_v_339) default main_v_341_1);
+main_v_344 : ((1 when main_v_339) default main_v_342);
+main_v_345_3 : ((-1 when main_v_338) default main_v_343_3);
+main_v_345_2 : ((1 when main_v_338) default main_v_343_2);
+main_v_345_1 : ((-1 when main_v_338) default main_v_343_1);
+main_v_346 : ((1 when main_v_338) default main_v_344);
+main_v_347_3 : ((-1 when main_v_337) default main_v_345_3);
+main_v_347_2 : ((-1 when main_v_337) default main_v_345_2);
+main_v_347_1 : ((1 when main_v_337) default main_v_345_1);
+main_v_348 : ((1 when main_v_337) default main_v_346);
+main_v_349_3 : ((-1 when main_v_336) default main_v_347_3);
+main_v_349_2 : ((1 when main_v_336) default main_v_347_2);
+main_v_349_1 : ((1 when main_v_336) default main_v_347_1);
+main_v_350 : ((1 when main_v_336) default main_v_348);
+main_v_351_3 : ((1 when main_v_335) default main_v_349_3);
+main_v_351_2 : ((1 when main_v_335) default main_v_349_2);
+main_v_351_1 : ((1 when main_v_335) default main_v_349_1);
+main_v_352 : ((1 when main_v_335) default main_v_350);
+main_s_10_St_9_Funk_3 : ((1 when main_v_334) default main_v_351_3);
+main_v_617 : ((main_s_10_St_9_Funk_3 when main_ck_3_1_0)
+  default main_s_10_St_9_Indie_3);
+main_s_10_St_9_Funk_2 : ((1 when main_v_334) default main_v_351_2);
+main_v_616 : ((main_s_10_St_9_Funk_2 when main_ck_3_1_0)
+  default main_s_10_St_9_Indie_2);
+main_s_10_St_9_Funk_1 : ((-1 when main_v_334) default main_v_351_1);
+main_v_615 : ((main_s_10_St_9_Funk_1 when main_ck_3_1_0)
+  default main_s_10_St_9_Indie_1);
+main_r_6_St_9_Funk : ((1 when main_v_334) default main_v_352);
+main_v_631 : ((main_r_6_St_9_Funk when main_ck_3_1_0)
+  default main_r_6_St_9_Indie);
+main_s_10_St_9_Indie_2_0 : main_s_10_St_9_Indie_2;
+main_s_10_St_9_Indie_2_1 : main_s_10_St_9_Indie_2;
+main_s_10_St_9_Indie_3_0_0 : main_s_10_St_9_Indie_3;
+main_s_10_St_9_Indie_3_0_1 : main_s_10_St_9_Indie_3;
+main_s_10_St_9_Indie_3_1_0 : main_s_10_St_9_Indie_3;
+main_s_10_St_9_Indie_3_1_1 : main_s_10_St_9_Indie_3;
+main_s_10_St_9_Funk_2_0 : main_s_10_St_9_Funk_2;
+main_s_10_St_9_Funk_2_1 : main_s_10_St_9_Funk_2;
+main_s_10_St_9_Funk_3_0_0 : main_s_10_St_9_Funk_3;
+main_s_10_St_9_Funk_3_0_1 : main_s_10_St_9_Funk_3;
+main_s_10_St_9_Funk_3_1_0 : main_s_10_St_9_Funk_3;
+main_s_10_St_9_Funk_3_1_1 : main_s_10_St_9_Funk_3;
+main_v_332_2_0 : main_v_332_2;
+main_v_332_2_1 : main_v_332_2;
+main_v_332_3_0_0 : main_v_332_3;
+main_v_332_3_0_1 : main_v_332_3;
+main_v_332_3_1_0 : main_v_332_3;
+main_v_332_3_1_1 : main_v_332_3;
+main_v_330_2_0 : main_v_330_2;
+main_v_330_2_1 : main_v_330_2;
+main_v_330_3_0_0 : main_v_330_3;
+main_v_330_3_0_1 : main_v_330_3;
+main_v_330_3_1_0 : main_v_330_3;
+main_v_330_3_1_1 : main_v_330_3;
+main_v_328_2_0 : main_v_328_2;
+main_v_328_2_1 : main_v_328_2;
+main_v_328_3_0_0 : main_v_328_3;
+main_v_328_3_0_1 : main_v_328_3;
+main_v_328_3_1_0 : main_v_328_3;
+main_v_328_3_1_1 : main_v_328_3;
+main_v_326_2_0 : main_v_326_2;
+main_v_326_2_1 : main_v_326_2;
+main_v_326_3_0_0 : main_v_326_3;
+main_v_326_3_0_1 : main_v_326_3;
+main_v_326_3_1_0 : main_v_326_3;
+main_v_326_3_1_1 : main_v_326_3;
+main_v_324_2_0 : main_v_324_2;
+main_v_324_2_1 : main_v_324_2;
+main_v_324_3_0_0 : main_v_324_3;
+main_v_324_3_0_1 : main_v_324_3;
+main_v_324_3_1_0 : main_v_324_3;
+main_v_324_3_1_1 : main_v_324_3;
+main_v_322_2_0 : main_v_322_2;
+main_v_322_2_1 : main_v_322_2;
+main_v_322_3_0_0 : main_v_322_3;
+main_v_322_3_0_1 : main_v_322_3;
+main_v_322_3_1_0 : main_v_322_3;
+main_v_322_3_1_1 : main_v_322_3;
+main_v_351_2_0 : main_v_351_2;
+main_v_351_2_1 : main_v_351_2;
+main_v_351_3_0_0 : main_v_351_3;
+main_v_351_3_0_1 : main_v_351_3;
+main_v_351_3_1_0 : main_v_351_3;
+main_v_351_3_1_1 : main_v_351_3;
+main_v_349_2_0 : main_v_349_2;
+main_v_349_2_1 : main_v_349_2;
+main_v_349_3_0_0 : main_v_349_3;
+main_v_349_3_0_1 : main_v_349_3;
+main_v_349_3_1_0 : main_v_349_3;
+main_v_349_3_1_1 : main_v_349_3;
+main_v_347_2_0 : main_v_347_2;
+main_v_347_2_1 : main_v_347_2;
+main_v_347_3_0_0 : main_v_347_3;
+main_v_347_3_0_1 : main_v_347_3;
+main_v_347_3_1_0 : main_v_347_3;
+main_v_347_3_1_1 : main_v_347_3;
+main_v_345_2_0 : main_v_345_2;
+main_v_345_2_1 : main_v_345_2;
+main_v_345_3_0_0 : main_v_345_3;
+main_v_345_3_0_1 : main_v_345_3;
+main_v_345_3_1_0 : main_v_345_3;
+main_v_345_3_1_1 : main_v_345_3;
+main_v_343_2_0 : main_v_343_2;
+main_v_343_2_1 : main_v_343_2;
+main_v_343_3_0_0 : main_v_343_3;
+main_v_343_3_0_1 : main_v_343_3;
+main_v_343_3_1_0 : main_v_343_3;
+main_v_343_3_1_1 : main_v_343_3;
+main_v_341_2_0 : main_v_341_2;
+main_v_341_2_1 : main_v_341_2;
+main_v_341_3_0_0 : main_v_341_3;
+main_v_341_3_0_1 : main_v_341_3;
+main_v_341_3_1_0 : main_v_341_3;
+main_v_341_3_1_1 : main_v_341_3;
+main_v_360_3 : ((-1 when main_v_359) default -1);
+main_v_360_2 : ((-1 when main_v_359) default 1);
+main_v_360_1 : ((-1 when main_v_359) default 1);
+main_v_361 : ((1 when main_v_359) default main_pnr_6);
+main_v_362_3 : ((1 when main_v_358) default main_v_360_3);
+main_v_362_2 : ((-1 when main_v_358) default main_v_360_2);
+main_v_362_1 : ((-1 when main_v_358) default main_v_360_1);
+main_v_363 : ((1 when main_v_358) default main_v_361);
+main_v_364_3 : ((-1 when main_v_357) default main_v_362_3);
+main_v_364_2 : ((1 when main_v_357) default main_v_362_2);
+main_v_364_1 : ((-1 when main_v_357) default main_v_362_1);
+main_v_365 : ((1 when main_v_357) default main_v_363);
+main_v_366_3 : ((-1 when main_v_356) default main_v_364_3);
+main_v_366_2 : ((-1 when main_v_356) default main_v_364_2);
+main_v_366_1 : ((1 when main_v_356) default main_v_364_1);
+main_v_367 : ((1 when main_v_356) default main_v_365);
+main_v_368_3 : ((1 when main_v_355) default main_v_366_3);
+main_v_368_2 : ((-1 when main_v_355) default main_v_366_2);
+main_v_368_1 : ((1 when main_v_355) default main_v_366_1);
+main_v_369 : ((1 when main_v_355) default main_v_367);
+main_v_370_3 : ((1 when main_v_354) default main_v_368_3);
+main_v_370_2 : ((1 when main_v_354) default main_v_368_2);
+main_v_370_1 : ((1 when main_v_354) default main_v_368_1);
+main_v_371 : ((1 when main_v_354) default main_v_369);
+main_s_10_St_9_Electronic_3 : ((1 when main_v_353) default main_v_370_3);
+main_s_10_St_9_Electronic_2 : ((1 when main_v_353) default main_v_370_2);
+main_s_10_St_9_Electronic_1 : ((-1 when main_v_353) default main_v_370_1);
+main_r_6_St_9_Electronic : ((1 when main_v_353) default main_v_371);
+main_v_379_3 : ((-1 when main_v_378) default 1);
+main_v_379_2 : ((-1 when main_v_378) default 1);
+main_v_379_1 : ((-1 when main_v_378) default 1);
+main_v_380 : ((1 when main_v_378) default main_pnr_6);
+main_v_381_3 : ((1 when main_v_377) default main_v_379_3);
+main_v_381_2 : ((-1 when main_v_377) default main_v_379_2);
+main_v_381_1 : ((-1 when main_v_377) default main_v_379_1);
+main_v_382 : ((1 when main_v_377) default main_v_380);
+main_v_383_3 : ((-1 when main_v_376) default main_v_381_3);
+main_v_383_2 : ((1 when main_v_376) default main_v_381_2);
+main_v_383_1 : ((-1 when main_v_376) default main_v_381_1);
+main_v_384 : ((1 when main_v_376) default main_v_382);
+main_v_385_3 : ((-1 when main_v_375) default main_v_383_3);
+main_v_385_2 : ((-1 when main_v_375) default main_v_383_2);
+main_v_385_1 : ((1 when main_v_375) default main_v_383_1);
+main_v_386 : ((1 when main_v_375) default main_v_384);
+main_v_387_3 : ((1 when main_v_374) default main_v_385_3);
+main_v_387_2 : ((-1 when main_v_374) default main_v_385_2);
+main_v_387_1 : ((1 when main_v_374) default main_v_385_1);
+main_v_388 : ((1 when main_v_374) default main_v_386);
+main_v_389_3 : ((-1 when main_v_373) default main_v_387_3);
+main_v_389_2 : ((1 when main_v_373) default main_v_387_2);
+main_v_389_1 : ((1 when main_v_373) default main_v_387_1);
+main_v_390 : ((1 when main_v_373) default main_v_388);
+main_s_10_St_9_Classic_3 : ((1 when main_v_372) default main_v_389_3);
+main_v_614 : ((main_s_10_St_9_Classic_3 when main_ck_3_1_1)
+  default main_s_10_St_9_Electronic_3);
+main_s_10_St_9_Classic_2 : ((1 when main_v_372) default main_v_389_2);
+main_v_613 : ((main_s_10_St_9_Classic_2 when main_ck_3_1_1)
+  default main_s_10_St_9_Electronic_2);
+main_s_10_St_9_Classic_1 : ((-1 when main_v_372) default main_v_389_1);
+main_v_612 : ((main_s_10_St_9_Classic_1 when main_ck_3_1_1)
+  default main_s_10_St_9_Electronic_1);
+main_r_6_St_9_Classic : ((1 when main_v_372) default main_v_390);
+main_v_630 : ((main_r_6_St_9_Classic when main_ck_3_1_1)
+  default main_r_6_St_9_Electronic);
+main_s_10_St_9_Electronic_2_0 : main_s_10_St_9_Electronic_2;
+main_s_10_St_9_Electronic_2_1 : main_s_10_St_9_Electronic_2;
+main_s_10_St_9_Electronic_3_0_0 : main_s_10_St_9_Electronic_3;
+main_s_10_St_9_Electronic_3_0_1 : main_s_10_St_9_Electronic_3;
+main_s_10_St_9_Electronic_3_1_0 : main_s_10_St_9_Electronic_3;
+main_s_10_St_9_Electronic_3_1_1 : main_s_10_St_9_Electronic_3;
+main_s_10_St_9_Classic_2_0 : main_s_10_St_9_Classic_2;
+main_s_10_St_9_Classic_2_1 : main_s_10_St_9_Classic_2;
+main_s_10_St_9_Classic_3_0_0 : main_s_10_St_9_Classic_3;
+main_s_10_St_9_Classic_3_0_1 : main_s_10_St_9_Classic_3;
+main_s_10_St_9_Classic_3_1_0 : main_s_10_St_9_Classic_3;
+main_s_10_St_9_Classic_3_1_1 : main_s_10_St_9_Classic_3;
+main_v_632 : ((main_v_630 when main_ck_2_1) default main_v_631);
+main_v_626 : ((main_v_614 when main_ck_2_1) default main_v_617);
+main_v_625 : ((main_v_613 when main_ck_2_1) default main_v_616);
+main_v_624 : ((main_v_612 when main_ck_2_1) default main_v_615);
+main_r_6 : ((main_v_632 when main_ck_1) default main_v_635);
+main_s_10_3 : ((main_v_626 when main_ck_1) default main_v_629);
+main_s_10_2 : ((main_v_625 when main_ck_1) default main_v_628);
+main_s_10_1 : ((main_v_624 when main_ck_1) default main_v_627);
+main_s_10_2_0 : main_s_10_2;
+main_s_10_2_1 : main_s_10_2;
+main_s_10_3_0_0 : main_s_10_3;
+main_s_10_3_0_1 : main_s_10_3;
+main_s_10_3_1_0 : main_s_10_3;
+main_s_10_3_1_1 : main_s_10_3;
+main_v_370_2_0 : main_v_370_2;
+main_v_370_2_1 : main_v_370_2;
+main_v_370_3_0_0 : main_v_370_3;
+main_v_370_3_0_1 : main_v_370_3;
+main_v_370_3_1_0 : main_v_370_3;
+main_v_370_3_1_1 : main_v_370_3;
+main_v_368_2_0 : main_v_368_2;
+main_v_368_2_1 : main_v_368_2;
+main_v_368_3_0_0 : main_v_368_3;
+main_v_368_3_0_1 : main_v_368_3;
+main_v_368_3_1_0 : main_v_368_3;
+main_v_368_3_1_1 : main_v_368_3;
+main_v_366_2_0 : main_v_366_2;
+main_v_366_2_1 : main_v_366_2;
+main_v_366_3_0_0 : main_v_366_3;
+main_v_366_3_0_1 : main_v_366_3;
+main_v_366_3_1_0 : main_v_366_3;
+main_v_366_3_1_1 : main_v_366_3;
+main_v_364_2_0 : main_v_364_2;
+main_v_364_2_1 : main_v_364_2;
+main_v_364_3_0_0 : main_v_364_3;
+main_v_364_3_0_1 : main_v_364_3;
+main_v_364_3_1_0 : main_v_364_3;
+main_v_364_3_1_1 : main_v_364_3;
+main_v_362_2_0 : main_v_362_2;
+main_v_362_2_1 : main_v_362_2;
+main_v_362_3_0_0 : main_v_362_3;
+main_v_362_3_0_1 : main_v_362_3;
+main_v_362_3_1_0 : main_v_362_3;
+main_v_362_3_1_1 : main_v_362_3;
+main_v_360_2_0 : main_v_360_2;
+main_v_360_2_1 : main_v_360_2;
+main_v_360_3_0_0 : main_v_360_3;
+main_v_360_3_0_1 : main_v_360_3;
+main_v_360_3_1_0 : main_v_360_3;
+main_v_360_3_1_1 : main_v_360_3;
+main_v_389_2_0 : main_v_389_2;
+main_v_389_2_1 : main_v_389_2;
+main_v_389_3_0_0 : main_v_389_3;
+main_v_389_3_0_1 : main_v_389_3;
+main_v_389_3_1_0 : main_v_389_3;
+main_v_389_3_1_1 : main_v_389_3;
+main_v_387_2_0 : main_v_387_2;
+main_v_387_2_1 : main_v_387_2;
+main_v_387_3_0_0 : main_v_387_3;
+main_v_387_3_0_1 : main_v_387_3;
+main_v_387_3_1_0 : main_v_387_3;
+main_v_387_3_1_1 : main_v_387_3;
+main_v_385_2_0 : main_v_385_2;
+main_v_385_2_1 : main_v_385_2;
+main_v_385_3_0_0 : main_v_385_3;
+main_v_385_3_0_1 : main_v_385_3;
+main_v_385_3_1_0 : main_v_385_3;
+main_v_385_3_1_1 : main_v_385_3;
+main_v_383_2_0 : main_v_383_2;
+main_v_383_2_1 : main_v_383_2;
+main_v_383_3_0_0 : main_v_383_3;
+main_v_383_3_0_1 : main_v_383_3;
+main_v_383_3_1_0 : main_v_383_3;
+main_v_383_3_1_1 : main_v_383_3;
+main_v_381_2_0 : main_v_381_2;
+main_v_381_2_1 : main_v_381_2;
+main_v_381_3_0_0 : main_v_381_3;
+main_v_381_3_0_1 : main_v_381_3;
+main_v_381_3_1_0 : main_v_381_3;
+main_v_381_3_1_1 : main_v_381_3;
+main_v_379_2_0 : main_v_379_2;
+main_v_379_2_1 : main_v_379_2;
+main_v_379_3_0_0 : main_v_379_3;
+main_v_379_3_0_1 : main_v_379_3;
+main_v_379_3_1_0 : main_v_379_3;
+main_v_379_3_1_1 : main_v_379_3;
+main_v_408_2_0 : main_v_408_2;
+main_v_408_2_1 : main_v_408_2;
+main_v_408_3_0_0 : main_v_408_3;
+main_v_408_3_0_1 : main_v_408_3;
+main_v_408_3_1_0 : main_v_408_3;
+main_v_408_3_1_1 : main_v_408_3;
+main_v_406_2_0 : main_v_406_2;
+main_v_406_2_1 : main_v_406_2;
+main_v_406_3_0_0 : main_v_406_3;
+main_v_406_3_0_1 : main_v_406_3;
+main_v_406_3_1_0 : main_v_406_3;
+main_v_406_3_1_1 : main_v_406_3;
+main_v_404_2_0 : main_v_404_2;
+main_v_404_2_1 : main_v_404_2;
+main_v_404_3_0_0 : main_v_404_3;
+main_v_404_3_0_1 : main_v_404_3;
+main_v_404_3_1_0 : main_v_404_3;
+main_v_404_3_1_1 : main_v_404_3;
+main_v_402_2_0 : main_v_402_2;
+main_v_402_2_1 : main_v_402_2;
+main_v_402_3_0_0 : main_v_402_3;
+main_v_402_3_0_1 : main_v_402_3;
+main_v_402_3_1_0 : main_v_402_3;
+main_v_402_3_1_1 : main_v_402_3;
+main_v_400_2_0 : main_v_400_2;
+main_v_400_2_1 : main_v_400_2;
+main_v_400_3_0_0 : main_v_400_3;
+main_v_400_3_0_1 : main_v_400_3;
+main_v_400_3_1_0 : main_v_400_3;
+main_v_400_3_1_1 : main_v_400_3;
+main_v_398_2_0 : main_v_398_2;
+main_v_398_2_1 : main_v_398_2;
+main_v_398_3_0_0 : main_v_398_3;
+main_v_398_3_0_1 : main_v_398_3;
+main_v_398_3_1_0 : main_v_398_3;
+main_v_398_3_1_1 : main_v_398_3;
+main_ck_4_3 : main_s_10_3;
+main_ck_4_2 : main_s_10_2;
+main_ck_4_1 : main_s_10_1;
+main_ck_4_2_0 : main_ck_4_2;
+main_ck_4_2_1 : main_ck_4_2;
+main_ck_4_3_0_0 : main_ck_4_3;
+main_ck_4_3_0_1 : main_ck_4_3;
+main_ck_4_3_1_0 : main_ck_4_3;
+main_ck_4_3_1_1 : main_ck_4_3;
+main_ns_6_St_9_Rock_3 : -1;
+main_ns_6_St_9_Rock_2 : -1;
+main_ns_6_St_9_Rock_1 : -1;
+main_nr_6_St_9_Rock : -1;
+main_res_St_9_Rock : a_const(7);
+main_ns_6_St_9_Regue_3 : 1;
+main_v_596 : ((main_ns_6_St_9_Regue_3 when main_ck_4_3_0_0)
+  default main_ns_6_St_9_Rock_3);
+main_ns_6_St_9_Regue_2 : -1;
+main_v_595 : ((main_ns_6_St_9_Regue_2 when main_ck_4_3_0_0)
+  default main_ns_6_St_9_Rock_2);
+main_ns_6_St_9_Regue_1 : -1;
+main_v_594 : ((main_ns_6_St_9_Regue_1 when main_ck_4_3_0_0)
+  default main_ns_6_St_9_Rock_1);
+main_nr_6_St_9_Regue : -1;
+main_v_607 : ((main_nr_6_St_9_Regue when main_ck_4_3_0_0)
+  default main_nr_6_St_9_Rock);
+main_res_St_9_Regue : a_const(6);
+main_v_583 : a_part(main_ck_4_3_0_0, a_const(0), main_res_St_9_Regue,
+                    main_res_St_9_Rock);
+main_ns_6_St_9_Rock_2_0 : main_ns_6_St_9_Rock_2;
+main_ns_6_St_9_Rock_2_1 : main_ns_6_St_9_Rock_2;
+main_ns_6_St_9_Rock_3_0_0 : main_ns_6_St_9_Rock_3;
+main_ns_6_St_9_Rock_3_0_1 : main_ns_6_St_9_Rock_3;
+main_ns_6_St_9_Rock_3_1_0 : main_ns_6_St_9_Rock_3;
+main_ns_6_St_9_Rock_3_1_1 : main_ns_6_St_9_Rock_3;
+main_ns_6_St_9_Regue_2_0 : main_ns_6_St_9_Regue_2;
+main_ns_6_St_9_Regue_2_1 : main_ns_6_St_9_Regue_2;
+main_ns_6_St_9_Regue_3_0_0 : main_ns_6_St_9_Regue_3;
+main_ns_6_St_9_Regue_3_0_1 : main_ns_6_St_9_Regue_3;
+main_ns_6_St_9_Regue_3_1_0 : main_ns_6_St_9_Regue_3;
+main_ns_6_St_9_Regue_3_1_1 : main_ns_6_St_9_Regue_3;
+main_ns_6_St_9_POP_3 : -1;
+main_ns_6_St_9_POP_2 : 1;
+main_ns_6_St_9_POP_1 : -1;
+main_nr_6_St_9_POP : -1;
+main_res_St_9_POP : a_const(5);
+main_ns_6_St_9_Off_3 : 1;
+main_v_593 : ((main_ns_6_St_9_Off_3 when main_ck_4_3_0_1)
+  default main_ns_6_St_9_POP_3);
+main_ns_6_St_9_Off_2 : 1;
+main_v_592 : ((main_ns_6_St_9_Off_2 when main_ck_4_3_0_1)
+  default main_ns_6_St_9_POP_2);
+main_ns_6_St_9_Off_1 : -1;
+main_v_591 : ((main_ns_6_St_9_Off_1 when main_ck_4_3_0_1)
+  default main_ns_6_St_9_POP_1);
+main_nr_6_St_9_Off : -1;
+main_v_606 : ((main_nr_6_St_9_Off when main_ck_4_3_0_1)
+  default main_nr_6_St_9_POP);
+main_res_St_9_Off : a_const(0);
+main_v_582 : a_part(main_ck_4_3_0_1, a_const(0), main_res_St_9_Off,
+                    main_res_St_9_POP);
+main_ns_6_St_9_POP_2_0 : main_ns_6_St_9_POP_2;
+main_ns_6_St_9_POP_2_1 : main_ns_6_St_9_POP_2;
+main_ns_6_St_9_POP_3_0_0 : main_ns_6_St_9_POP_3;
+main_ns_6_St_9_POP_3_0_1 : main_ns_6_St_9_POP_3;
+main_ns_6_St_9_POP_3_1_0 : main_ns_6_St_9_POP_3;
+main_ns_6_St_9_POP_3_1_1 : main_ns_6_St_9_POP_3;
+main_ns_6_St_9_Off_2_0 : main_ns_6_St_9_Off_2;
+main_ns_6_St_9_Off_2_1 : main_ns_6_St_9_Off_2;
+main_ns_6_St_9_Off_3_0_0 : main_ns_6_St_9_Off_3;
+main_ns_6_St_9_Off_3_0_1 : main_ns_6_St_9_Off_3;
+main_ns_6_St_9_Off_3_1_0 : main_ns_6_St_9_Off_3;
+main_ns_6_St_9_Off_3_1_1 : main_ns_6_St_9_Off_3;
+main_v_608 : ((main_v_606 when main_ck_4_2_0) default main_v_607);
+main_v_602 : ((main_v_593 when main_ck_4_2_0) default main_v_596);
+main_v_601 : ((main_v_592 when main_ck_4_2_0) default main_v_595);
+main_v_600 : ((main_v_591 when main_ck_4_2_0) default main_v_594);
+main_v_584 : a_part(main_ck_4_2_0, a_const(0), main_v_582, main_v_583);
+main_ns_6_St_9_Indie_3 : -1;
+main_ns_6_St_9_Indie_2 : -1;
+main_ns_6_St_9_Indie_1 : 1;
+main_nr_6_St_9_Indie : -1;
+main_res_St_9_Indie : a_const(4);
+main_ns_6_St_9_Funk_3 : 1;
+main_v_590 : ((main_ns_6_St_9_Funk_3 when main_ck_4_3_1_0)
+  default main_ns_6_St_9_Indie_3);
+main_ns_6_St_9_Funk_2 : -1;
+main_v_589 : ((main_ns_6_St_9_Funk_2 when main_ck_4_3_1_0)
+  default main_ns_6_St_9_Indie_2);
+main_ns_6_St_9_Funk_1 : 1;
+main_v_588 : ((main_ns_6_St_9_Funk_1 when main_ck_4_3_1_0)
+  default main_ns_6_St_9_Indie_1);
+main_nr_6_St_9_Funk : -1;
+main_v_604 : ((main_nr_6_St_9_Funk when main_ck_4_3_1_0)
+  default main_nr_6_St_9_Indie);
+main_res_St_9_Funk : a_const(3);
+main_v_580 : a_part(main_ck_4_3_1_0, a_const(0), main_res_St_9_Funk,
+                    main_res_St_9_Indie);
+main_ns_6_St_9_Indie_2_0 : main_ns_6_St_9_Indie_2;
+main_ns_6_St_9_Indie_2_1 : main_ns_6_St_9_Indie_2;
+main_ns_6_St_9_Indie_3_0_0 : main_ns_6_St_9_Indie_3;
+main_ns_6_St_9_Indie_3_0_1 : main_ns_6_St_9_Indie_3;
+main_ns_6_St_9_Indie_3_1_0 : main_ns_6_St_9_Indie_3;
+main_ns_6_St_9_Indie_3_1_1 : main_ns_6_St_9_Indie_3;
+main_ns_6_St_9_Funk_2_0 : main_ns_6_St_9_Funk_2;
+main_ns_6_St_9_Funk_2_1 : main_ns_6_St_9_Funk_2;
+main_ns_6_St_9_Funk_3_0_0 : main_ns_6_St_9_Funk_3;
+main_ns_6_St_9_Funk_3_0_1 : main_ns_6_St_9_Funk_3;
+main_ns_6_St_9_Funk_3_1_0 : main_ns_6_St_9_Funk_3;
+main_ns_6_St_9_Funk_3_1_1 : main_ns_6_St_9_Funk_3;
+main_ns_6_St_9_Electronic_3 : -1;
+main_ns_6_St_9_Electronic_2 : 1;
+main_ns_6_St_9_Electronic_1 : 1;
+main_nr_6_St_9_Electronic : -1;
+main_res_St_9_Electronic : a_const(2);
+main_ns_6_St_9_Classic_3 : 1;
+main_v_587 : ((main_ns_6_St_9_Classic_3 when main_ck_4_3_1_1)
+  default main_ns_6_St_9_Electronic_3);
+main_ns_6_St_9_Classic_2 : 1;
+main_v_586 : ((main_ns_6_St_9_Classic_2 when main_ck_4_3_1_1)
+  default main_ns_6_St_9_Electronic_2);
+main_ns_6_St_9_Classic_1 : 1;
+main_v_585 : ((main_ns_6_St_9_Classic_1 when main_ck_4_3_1_1)
+  default main_ns_6_St_9_Electronic_1);
+main_nr_6_St_9_Classic : -1;
+main_v_603 : ((main_nr_6_St_9_Classic when main_ck_4_3_1_1)
+  default main_nr_6_St_9_Electronic);
+main_res_St_9_Classic : a_const(1);
+main_v_579 : a_part(main_ck_4_3_1_1, a_const(0), main_res_St_9_Classic,
+                    main_res_St_9_Electronic);
+main_ns_6_St_9_Electronic_2_0 : main_ns_6_St_9_Electronic_2;
+main_ns_6_St_9_Electronic_2_1 : main_ns_6_St_9_Electronic_2;
+main_ns_6_St_9_Electronic_3_0_0 : main_ns_6_St_9_Electronic_3;
+main_ns_6_St_9_Electronic_3_0_1 : main_ns_6_St_9_Electronic_3;
+main_ns_6_St_9_Electronic_3_1_0 : main_ns_6_St_9_Electronic_3;
+main_ns_6_St_9_Electronic_3_1_1 : main_ns_6_St_9_Electronic_3;
+main_ns_6_St_9_Classic_2_0 : main_ns_6_St_9_Classic_2;
+main_ns_6_St_9_Classic_2_1 : main_ns_6_St_9_Classic_2;
+main_ns_6_St_9_Classic_3_0_0 : main_ns_6_St_9_Classic_3;
+main_ns_6_St_9_Classic_3_0_1 : main_ns_6_St_9_Classic_3;
+main_ns_6_St_9_Classic_3_1_0 : main_ns_6_St_9_Classic_3;
+main_ns_6_St_9_Classic_3_1_1 : main_ns_6_St_9_Classic_3;
+main_v_605 : ((main_v_603 when main_ck_4_2_1) default main_v_604);
+main_v_599 : ((main_v_587 when main_ck_4_2_1) default main_v_590);
+main_v_598 : ((main_v_586 when main_ck_4_2_1) default main_v_589);
+main_v_597 : ((main_v_585 when main_ck_4_2_1) default main_v_588);
+main_v_581 : a_part(main_ck_4_2_1, a_const(0), main_v_579, main_v_580);
+main_nr_6 : ((main_v_605 when main_ck_4_1) default main_v_608);
+main_ns_6_3 : ((main_v_599 when main_ck_4_1) default main_v_602);
+main_ns_6_2 : ((main_v_598 when main_ck_4_1) default main_v_601);
+main_ns_6_1 : ((main_v_597 when main_ck_4_1) default main_v_600);
+main_res : a_part(main_ck_4_1, a_const(0), main_v_581, main_v_584);
+main_ns_6_2_0 : main_ns_6_2;
+main_ns_6_2_1 : main_ns_6_2;
+main_ns_6_3_0_0 : main_ns_6_3;
+main_ns_6_3_0_1 : main_ns_6_3;
+main_ns_6_3_1_0 : main_ns_6_3;
+main_ns_6_3_1_1 : main_ns_6_3;
+main_re : main_res;
+main_s_9_St_8_ON_1 : ((-1 when main_c) default 1);
+main_r_5_St_8_ON : ((1 when main_c) default main_pnr_5);
+main_v_410 : (not main_c);
+main_s_9_St_8_Off_1 : ((1 when main_v_410) default -1);
+main_s_9_1 : ((main_s_9_St_8_ON_1 when main_ck_5_1)
+  default main_s_9_St_8_Off_1);
+main_r_5_St_8_Off : ((1 when main_v_410) default main_pnr_5);
+main_r_5 : ((main_r_5_St_8_ON when main_ck_5_1) default main_r_5_St_8_Off);
+main_ck_6_1 : main_s_9_1;
+main_ns_5_St_8_ON_1 : 1;
+main_nr_5_St_8_ON : -1;
+main_ligado_St_8_ON : 1;
+main_ns_5_St_8_Off_1 : -1;
+main_ns_5_1 : ((main_ns_5_St_8_ON_1 when main_ck_6_1)
+  default main_ns_5_St_8_Off_1);
+main_nr_5_St_8_Off : -1;
+main_nr_5 : ((main_nr_5_St_8_ON when main_ck_6_1)
+  default main_nr_5_St_8_Off);
+main_ligado_St_8_Off : -1;
+main_ligado : ((main_ligado_St_8_ON when main_ck_6_1)
+  default main_ligado_St_8_Off);
+main_cx1 : main_ligado;
+main_s_8_St_7_ON_1 : ((-1 when main_c_1) default 1);
+main_r_4_St_7_ON : ((1 when main_c_1) default main_pnr_4);
+main_v_411 : (not main_c_1);
+main_s_8_St_7_Off_1 : ((1 when main_v_411) default -1);
+main_s_8_1 : ((main_s_8_St_7_ON_1 when main_ck_7_1)
+  default main_s_8_St_7_Off_1);
+main_r_4_St_7_Off : ((1 when main_v_411) default main_pnr_4);
+main_r_4 : ((main_r_4_St_7_ON when main_ck_7_1) default main_r_4_St_7_Off);
+main_ck_8_1 : main_s_8_1;
+main_ns_4_St_7_ON_1 : 1;
+main_nr_4_St_7_ON : -1;
+main_ligado_1_St_7_ON : 1;
+main_ns_4_St_7_Off_1 : -1;
+main_ns_4_1 : ((main_ns_4_St_7_ON_1 when main_ck_8_1)
+  default main_ns_4_St_7_Off_1);
+main_nr_4_St_7_Off : -1;
+main_nr_4 : ((main_nr_4_St_7_ON when main_ck_8_1)
+  default main_nr_4_St_7_Off);
+main_ligado_1_St_7_Off : -1;
+main_ligado_1 : ((main_ligado_1_St_7_ON when main_ck_8_1)
+  default main_ligado_1_St_7_Off);
+main_cx2 : main_ligado_1;
+main_s_7_St_6_ON_1 : ((-1 when main_c_2) default 1);
+main_r_3_St_6_ON : ((1 when main_c_2) default main_pnr_3);
+main_v_412 : (not main_c_2);
+main_s_7_St_6_Off_1 : ((1 when main_v_412) default -1);
+main_s_7_1 : ((main_s_7_St_6_ON_1 when main_ck_9_1)
+  default main_s_7_St_6_Off_1);
+main_r_3_St_6_Off : ((1 when main_v_412) default main_pnr_3);
+main_r_3 : ((main_r_3_St_6_ON when main_ck_9_1) default main_r_3_St_6_Off);
+main_ck_10_1 : main_s_7_1;
+main_ns_3_St_6_ON_1 : 1;
+main_nr_3_St_6_ON : -1;
+main_ligado_2_St_6_ON : 1;
+main_ns_3_St_6_Off_1 : -1;
+main_ns_3_1 : ((main_ns_3_St_6_ON_1 when main_ck_10_1)
+  default main_ns_3_St_6_Off_1);
+main_nr_3_St_6_Off : -1;
+main_nr_3 : ((main_nr_3_St_6_ON when main_ck_10_1)
+  default main_nr_3_St_6_Off);
+main_ligado_2_St_6_Off : -1;
+main_ligado_2 : ((main_ligado_2_St_6_ON when main_ck_10_1)
+  default main_ligado_2_St_6_Off);
+main_cx3 : main_ligado_2;
+main_ck_11_2_0 : main_ck_11_2;
+main_ck_11_2_1 : main_ck_11_2;
+main_v_413 : main_c2_1;
+main_v_414 : main_c1_1;
+main_v_415_2 : ((-1 when main_v_414) default 1);
+main_v_415_1 : ((-1 when main_v_414) default 1);
+main_v_416 : ((1 when main_v_414) default main_pnr_2);
+main_s_6_St_5_High_2 : ((-1 when main_v_413) default main_v_415_2);
+main_s_6_St_5_High_1 : ((1 when main_v_413) default main_v_415_1);
+main_r_2_St_5_High : ((1 when main_v_413) default main_v_416);
+main_v_422 : (not main_c1_1);
+main_v_423 : main_v_422;
+main_v_424 : (not main_c2_1);
+main_v_425 : main_v_424;
+main_v_426_2 : ((1 when main_v_425) default -1);
+main_v_426_1 : ((1 when main_v_425) default 1);
+main_v_427 : ((1 when main_v_425) default main_pnr_2);
+main_s_6_St_5_Low_2 : ((-1 when main_v_423) default main_v_426_2);
+main_v_574 : ((main_s_6_St_5_High_2 when main_ck_11_2_1)
+  default main_s_6_St_5_Low_2);
+main_s_6_St_5_Low_1 : ((-1 when main_v_423) default main_v_426_1);
+main_v_573 : ((main_s_6_St_5_High_1 when main_ck_11_2_1)
+  default main_s_6_St_5_Low_1);
+main_r_2_St_5_Low : ((1 when main_v_423) default main_v_427);
+main_v_577 : ((main_r_2_St_5_High when main_ck_11_2_1)
+  default main_r_2_St_5_Low);
+main_s_6_St_5_High_2_0 : main_s_6_St_5_High_2;
+main_s_6_St_5_High_2_1 : main_s_6_St_5_High_2;
+main_s_6_St_5_Low_2_0 : main_s_6_St_5_Low_2;
+main_s_6_St_5_Low_2_1 : main_s_6_St_5_Low_2;
+main_v_415_2_0 : main_v_415_2;
+main_v_415_2_1 : main_v_415_2;
+main_v_417 : (not main_c2_1);
+main_v_418 : main_v_417;
+main_v_419 : main_c1_1;
+main_v_420_2 : ((-1 when main_v_419) default -1);
+main_v_420_1 : ((1 when main_v_419) default -1);
+main_v_421 : ((1 when main_v_419) default main_pnr_2);
+main_s_6_St_5_Mid_2 : ((1 when main_v_418) default main_v_420_2);
+main_v_576 : ((1 when main_ck_11_2_0) default main_s_6_St_5_Mid_2);
+main_s_6_St_5_Mid_1 : ((1 when main_v_418) default main_v_420_1);
+main_v_575 : ((1 when main_ck_11_2_0) default main_s_6_St_5_Mid_1);
+main_r_2_St_5_Mid : ((1 when main_v_418) default main_v_421);
+main_v_578 : ((1 when main_ck_11_2_0) default main_r_2_St_5_Mid);
+main_s_6_St_5_Mid_2_0 : main_s_6_St_5_Mid_2;
+main_s_6_St_5_Mid_2_1 : main_s_6_St_5_Mid_2;
+main_r_2 : ((main_v_577 when main_ck_11_1) default main_v_578);
+main_s_6_2 : ((main_v_574 when main_ck_11_1) default main_v_576);
+main_s_6_1 : ((main_v_573 when main_ck_11_1) default main_v_575);
+main_s_6_2_0 : main_s_6_2;
+main_s_6_2_1 : main_s_6_2;
+main_v_420_2_0 : main_v_420_2;
+main_v_420_2_1 : main_v_420_2;
+main_v_426_2_0 : main_v_426_2;
+main_v_426_2_1 : main_v_426_2;
+main_ck_12_2 : main_s_6_2;
+main_ck_12_1 : main_s_6_1;
+main_ck_12_2_0 : main_ck_12_2;
+main_ck_12_2_1 : main_ck_12_2;
+main_ns_2_St_5_High_2 : 1;
+main_ns_2_St_5_High_1 : 1;
+main_nr_2_St_5_High : -1;
+main_s_St_5_High : a_const(100);
+main_ns_2_St_5_Low_2 : -1;
+main_v_566 : ((main_ns_2_St_5_High_2 when main_ck_12_2_1)
+  default main_ns_2_St_5_Low_2);
+main_ns_2_St_5_Low_1 : 1;
+main_v_565 : ((main_ns_2_St_5_High_1 when main_ck_12_2_1)
+  default main_ns_2_St_5_Low_1);
+main_nr_2_St_5_Low : -1;
+main_v_569 : ((main_nr_2_St_5_High when main_ck_12_2_1)
+  default main_nr_2_St_5_Low);
+main_s_St_5_Low : a_const(10);
+main_v_563 : a_part(main_ck_12_2_1, a_const(0), main_s_St_5_High,
+                    main_s_St_5_Low);
+main_ns_2_St_5_High_2_0 : main_ns_2_St_5_High_2;
+main_ns_2_St_5_High_2_1 : main_ns_2_St_5_High_2;
+main_ns_2_St_5_Low_2_0 : main_ns_2_St_5_Low_2;
+main_ns_2_St_5_Low_2_1 : main_ns_2_St_5_Low_2;
+main_ns_2_St_5_Mid_2 : -1;
+main_v_568 : ((1 when main_ck_12_2_0) default main_ns_2_St_5_Mid_2);
+main_ns_2_St_5_Mid_1 : -1;
+main_v_567 : ((1 when main_ck_12_2_0) default main_ns_2_St_5_Mid_1);
+main_nr_2_St_5_Mid : -1;
+main_v_570 : ((1 when main_ck_12_2_0) default main_nr_2_St_5_Mid);
+main_s_St_5_Mid : a_const(50);
+main_v_564 : a_part(main_ck_12_2_0, a_const(0), a_const(0), main_s_St_5_Mid);
+main_ns_2_St_5_Mid_2_0 : main_ns_2_St_5_Mid_2;
+main_ns_2_St_5_Mid_2_1 : main_ns_2_St_5_Mid_2;
+main_nr_2 : ((main_v_569 when main_ck_12_1) default main_v_570);
+main_ns_2_2 : ((main_v_566 when main_ck_12_1) default main_v_568);
+main_ns_2_1 : ((main_v_565 when main_ck_12_1) default main_v_567);
+main_s : a_part(main_ck_12_1, a_const(0), main_v_563, main_v_564);
+main_ns_2_2_0 : main_ns_2_2;
+main_ns_2_2_1 : main_ns_2_2;
+main_agudo : main_s;
+main_ck_13_2_0 : main_ck_13_2;
+main_ck_13_2_1 : main_ck_13_2;
+main_v_428 : main_c2_2;
+main_v_429 : main_c1_2;
+main_v_430_2 : ((-1 when main_v_429) default 1);
+main_v_430_1 : ((-1 when main_v_429) default 1);
+main_v_431 : ((1 when main_v_429) default main_pnr_1);
+main_s_5_St_4_High_2 : ((-1 when main_v_428) default main_v_430_2);
+main_s_5_St_4_High_1 : ((1 when main_v_428) default main_v_430_1);
+main_r_1_St_4_High : ((1 when main_v_428) default main_v_431);
+main_v_437 : (not main_c1_2);
+main_v_438 : main_v_437;
+main_v_439 : (not main_c2_2);
+main_v_440 : main_v_439;
+main_v_441_2 : ((1 when main_v_440) default -1);
+main_v_441_1 : ((1 when main_v_440) default 1);
+main_v_442 : ((1 when main_v_440) default main_pnr_1);
+main_s_5_St_4_Low_2 : ((-1 when main_v_438) default main_v_441_2);
+main_v_558 : ((main_s_5_St_4_High_2 when main_ck_13_2_1)
+  default main_s_5_St_4_Low_2);
+main_s_5_St_4_Low_1 : ((-1 when main_v_438) default main_v_441_1);
+main_v_557 : ((main_s_5_St_4_High_1 when main_ck_13_2_1)
+  default main_s_5_St_4_Low_1);
+main_r_1_St_4_Low : ((1 when main_v_438) default main_v_442);
+main_v_561 : ((main_r_1_St_4_High when main_ck_13_2_1)
+  default main_r_1_St_4_Low);
+main_s_5_St_4_High_2_0 : main_s_5_St_4_High_2;
+main_s_5_St_4_High_2_1 : main_s_5_St_4_High_2;
+main_s_5_St_4_Low_2_0 : main_s_5_St_4_Low_2;
+main_s_5_St_4_Low_2_1 : main_s_5_St_4_Low_2;
+main_v_430_2_0 : main_v_430_2;
+main_v_430_2_1 : main_v_430_2;
+main_v_432 : (not main_c2_2);
+main_v_433 : main_v_432;
+main_v_434 : main_c1_2;
+main_v_435_2 : ((-1 when main_v_434) default -1);
+main_v_435_1 : ((1 when main_v_434) default -1);
+main_v_436 : ((1 when main_v_434) default main_pnr_1);
+main_s_5_St_4_Mid_2 : ((1 when main_v_433) default main_v_435_2);
+main_v_560 : ((1 when main_ck_13_2_0) default main_s_5_St_4_Mid_2);
+main_s_5_St_4_Mid_1 : ((1 when main_v_433) default main_v_435_1);
+main_v_559 : ((1 when main_ck_13_2_0) default main_s_5_St_4_Mid_1);
+main_r_1_St_4_Mid : ((1 when main_v_433) default main_v_436);
+main_v_562 : ((1 when main_ck_13_2_0) default main_r_1_St_4_Mid);
+main_s_5_St_4_Mid_2_0 : main_s_5_St_4_Mid_2;
+main_s_5_St_4_Mid_2_1 : main_s_5_St_4_Mid_2;
+main_r_1 : ((main_v_561 when main_ck_13_1) default main_v_562);
+main_s_5_2 : ((main_v_558 when main_ck_13_1) default main_v_560);
+main_s_5_1 : ((main_v_557 when main_ck_13_1) default main_v_559);
+main_s_5_2_0 : main_s_5_2;
+main_s_5_2_1 : main_s_5_2;
+main_v_435_2_0 : main_v_435_2;
+main_v_435_2_1 : main_v_435_2;
+main_v_441_2_0 : main_v_441_2;
+main_v_441_2_1 : main_v_441_2;
+main_ck_14_2 : main_s_5_2;
+main_ck_14_1 : main_s_5_1;
+main_ck_14_2_0 : main_ck_14_2;
+main_ck_14_2_1 : main_ck_14_2;
+main_ns_1_St_4_High_2 : 1;
+main_ns_1_St_4_High_1 : 1;
+main_nr_1_St_4_High : -1;
+main_s_1_St_4_High : a_const(100);
+main_ns_1_St_4_Low_2 : -1;
+main_v_550 : ((main_ns_1_St_4_High_2 when main_ck_14_2_1)
+  default main_ns_1_St_4_Low_2);
+main_ns_1_St_4_Low_1 : 1;
+main_v_549 : ((main_ns_1_St_4_High_1 when main_ck_14_2_1)
+  default main_ns_1_St_4_Low_1);
+main_nr_1_St_4_Low : -1;
+main_v_553 : ((main_nr_1_St_4_High when main_ck_14_2_1)
+  default main_nr_1_St_4_Low);
+main_s_1_St_4_Low : a_const(10);
+main_v_547 : a_part(main_ck_14_2_1, a_const(0), main_s_1_St_4_High,
+                    main_s_1_St_4_Low);
+main_ns_1_St_4_High_2_0 : main_ns_1_St_4_High_2;
+main_ns_1_St_4_High_2_1 : main_ns_1_St_4_High_2;
+main_ns_1_St_4_Low_2_0 : main_ns_1_St_4_Low_2;
+main_ns_1_St_4_Low_2_1 : main_ns_1_St_4_Low_2;
+main_ns_1_St_4_Mid_2 : -1;
+main_v_552 : ((1 when main_ck_14_2_0) default main_ns_1_St_4_Mid_2);
+main_ns_1_St_4_Mid_1 : -1;
+main_v_551 : ((1 when main_ck_14_2_0) default main_ns_1_St_4_Mid_1);
+main_nr_1_St_4_Mid : -1;
+main_v_554 : ((1 when main_ck_14_2_0) default main_nr_1_St_4_Mid);
+main_s_1_St_4_Mid : a_const(50);
+main_v_548 : a_part(main_ck_14_2_0, a_const(0), a_const(0), main_s_1_St_4_Mid);
+main_ns_1_St_4_Mid_2_0 : main_ns_1_St_4_Mid_2;
+main_ns_1_St_4_Mid_2_1 : main_ns_1_St_4_Mid_2;
+main_nr_1 : ((main_v_553 when main_ck_14_1) default main_v_554);
+main_ns_1_2 : ((main_v_550 when main_ck_14_1) default main_v_552);
+main_ns_1_1 : ((main_v_549 when main_ck_14_1) default main_v_551);
+main_s_1 : a_part(main_ck_14_1, a_const(0), main_v_547, main_v_548);
+main_ns_1_2_0 : main_ns_1_2;
+main_ns_1_2_1 : main_ns_1_2;
+main_medio : main_s_1;
+main_ck_15_2_0 : main_ck_15_2;
+main_ck_15_2_1 : main_ck_15_2;
+main_v_443 : main_c2_3;
+main_v_444 : main_c1_3;
+main_v_445_2 : ((-1 when main_v_444) default 1);
+main_v_445_1 : ((-1 when main_v_444) default 1);
+main_v_446 : ((1 when main_v_444) default main_pnr);
+main_s_4_St_3_High_2 : ((-1 when main_v_443) default main_v_445_2);
+main_s_4_St_3_High_1 : ((1 when main_v_443) default main_v_445_1);
+main_r_St_3_High : ((1 when main_v_443) default main_v_446);
+main_v_452 : (not main_c1_3);
+main_v_453 : main_v_452;
+main_v_454 : (not main_c2_3);
+main_v_455 : main_v_454;
+main_v_456_2 : ((1 when main_v_455) default -1);
+main_v_456_1 : ((1 when main_v_455) default 1);
+main_v_457 : ((1 when main_v_455) default main_pnr);
+main_s_4_St_3_Low_2 : ((-1 when main_v_453) default main_v_456_2);
+main_v_542 : ((main_s_4_St_3_High_2 when main_ck_15_2_1)
+  default main_s_4_St_3_Low_2);
+main_s_4_St_3_Low_1 : ((-1 when main_v_453) default main_v_456_1);
+main_v_541 : ((main_s_4_St_3_High_1 when main_ck_15_2_1)
+  default main_s_4_St_3_Low_1);
+main_r_St_3_Low : ((1 when main_v_453) default main_v_457);
+main_v_545 : ((main_r_St_3_High when main_ck_15_2_1)
+  default main_r_St_3_Low);
+main_s_4_St_3_High_2_0 : main_s_4_St_3_High_2;
+main_s_4_St_3_High_2_1 : main_s_4_St_3_High_2;
+main_s_4_St_3_Low_2_0 : main_s_4_St_3_Low_2;
+main_s_4_St_3_Low_2_1 : main_s_4_St_3_Low_2;
+main_v_445_2_0 : main_v_445_2;
+main_v_445_2_1 : main_v_445_2;
+main_v_447 : (not main_c2_3);
+main_v_448 : main_v_447;
+main_v_449 : main_c1_3;
+main_v_450_2 : ((-1 when main_v_449) default -1);
+main_v_450_1 : ((1 when main_v_449) default -1);
+main_v_451 : ((1 when main_v_449) default main_pnr);
+main_s_4_St_3_Mid_2 : ((1 when main_v_448) default main_v_450_2);
+main_v_544 : ((1 when main_ck_15_2_0) default main_s_4_St_3_Mid_2);
+main_s_4_St_3_Mid_1 : ((1 when main_v_448) default main_v_450_1);
+main_v_543 : ((1 when main_ck_15_2_0) default main_s_4_St_3_Mid_1);
+main_r_St_3_Mid : ((1 when main_v_448) default main_v_451);
+main_v_546 : ((1 when main_ck_15_2_0) default main_r_St_3_Mid);
+main_s_4_St_3_Mid_2_0 : main_s_4_St_3_Mid_2;
+main_s_4_St_3_Mid_2_1 : main_s_4_St_3_Mid_2;
+main_r : ((main_v_545 when main_ck_15_1) default main_v_546);
+main_s_4_2 : ((main_v_542 when main_ck_15_1) default main_v_544);
+main_s_4_1 : ((main_v_541 when main_ck_15_1) default main_v_543);
+main_s_4_2_0 : main_s_4_2;
+main_s_4_2_1 : main_s_4_2;
+main_v_450_2_0 : main_v_450_2;
+main_v_450_2_1 : main_v_450_2;
+main_v_456_2_0 : main_v_456_2;
+main_v_456_2_1 : main_v_456_2;
+main_ck_16_2 : main_s_4_2;
+main_ck_16_1 : main_s_4_1;
+main_ck_16_2_0 : main_ck_16_2;
+main_ck_16_2_1 : main_ck_16_2;
+main_ns_St_3_High_2 : 1;
+main_ns_St_3_High_1 : 1;
+main_nr_St_3_High : -1;
+main_s_2_St_3_High : a_const(100);
+main_ns_St_3_Low_2 : -1;
+main_v_534 : ((main_ns_St_3_High_2 when main_ck_16_2_1)
+  default main_ns_St_3_Low_2);
+main_ns_St_3_Low_1 : 1;
+main_v_533 : ((main_ns_St_3_High_1 when main_ck_16_2_1)
+  default main_ns_St_3_Low_1);
+main_nr_St_3_Low : -1;
+main_v_537 : ((main_nr_St_3_High when main_ck_16_2_1)
+  default main_nr_St_3_Low);
+main_s_2_St_3_Low : a_const(10);
+main_v_531 : a_part(main_ck_16_2_1, a_const(0), main_s_2_St_3_High,
+                    main_s_2_St_3_Low);
+main_ns_St_3_High_2_0 : main_ns_St_3_High_2;
+main_ns_St_3_High_2_1 : main_ns_St_3_High_2;
+main_ns_St_3_Low_2_0 : main_ns_St_3_Low_2;
+main_ns_St_3_Low_2_1 : main_ns_St_3_Low_2;
+main_ns_St_3_Mid_2 : -1;
+main_v_536 : ((1 when main_ck_16_2_0) default main_ns_St_3_Mid_2);
+main_ns_St_3_Mid_1 : -1;
+main_v_535 : ((1 when main_ck_16_2_0) default main_ns_St_3_Mid_1);
+main_nr_St_3_Mid : -1;
+main_v_538 : ((1 when main_ck_16_2_0) default main_nr_St_3_Mid);
+main_s_2_St_3_Mid : a_const(50);
+main_v_532 : a_part(main_ck_16_2_0, a_const(0), a_const(0), main_s_2_St_3_Mid);
+main_ns_St_3_Mid_2_0 : main_ns_St_3_Mid_2;
+main_ns_St_3_Mid_2_1 : main_ns_St_3_Mid_2;
+main_nr : ((main_v_537 when main_ck_16_1) default main_v_538);
+main_ns_2_3 : ((main_v_534 when main_ck_16_1) default main_v_536);
+main_ns_1_3 : ((main_v_533 when main_ck_16_1) default main_v_535);
+main_s_2 : a_part(main_ck_16_1, a_const(0), main_v_531, main_v_532);
+main_ns_2_3_0 : main_ns_2_3;
+main_ns_2_3_1 : main_ns_2_3;
+main_grave : main_s_2;
+initialisations : concat(initialisations, [(main_v_611 = 1)]);
+evolutions : concat(evolutions, [(main_ns_6_3 default main_v_611)]);
+initialisations : concat(initialisations, [(main_v_610 = 1)]);
+evolutions : concat(evolutions, [(main_ns_6_2 default main_v_610)]);
+initialisations : concat(initialisations, [(main_v_609 = -1)]);
+evolutions : concat(evolutions, [(main_ns_6_1 default main_v_609)]);
+initialisations : concat(initialisations, [(main_pnr_6 = -1)]);
+evolutions : concat(evolutions, [(main_nr_6 default main_pnr_6)]);
+initialisations : concat(initialisations, [(main_ck_5_1 = -1)]);
+evolutions : concat(evolutions, [(main_ns_5_1 default main_ck_5_1)]);
+initialisations : concat(initialisations, [(main_pnr_5 = -1)]);
+evolutions : concat(evolutions, [(main_nr_5 default main_pnr_5)]);
+initialisations : concat(initialisations, [(main_ck_7_1 = -1)]);
+evolutions : concat(evolutions, [(main_ns_4_1 default main_ck_7_1)]);
+initialisations : concat(initialisations, [(main_pnr_4 = -1)]);
+evolutions : concat(evolutions, [(main_nr_4 default main_pnr_4)]);
+initialisations : concat(initialisations, [(main_ck_9_1 = -1)]);
+evolutions : concat(evolutions, [(main_ns_3_1 default main_ck_9_1)]);
+initialisations : concat(initialisations, [(main_pnr_3 = -1)]);
+evolutions : concat(evolutions, [(main_nr_3 default main_pnr_3)]);
+initialisations : concat(initialisations, [(main_v_572 = -1)]);
+evolutions : concat(evolutions, [(main_ns_2_2 default main_v_572)]);
+initialisations : concat(initialisations, [(main_v_571 = 1)]);
+evolutions : concat(evolutions, [(main_ns_2_1 default main_v_571)]);
+initialisations : concat(initialisations, [(main_pnr_2 = -1)]);
+evolutions : concat(evolutions, [(main_nr_2 default main_pnr_2)]);
+initialisations : concat(initialisations, [(main_v_556 = -1)]);
+evolutions : concat(evolutions, [(main_ns_1_2 default main_v_556)]);
+initialisations : concat(initialisations, [(main_v_555 = 1)]);
+evolutions : concat(evolutions, [(main_ns_1_1 default main_v_555)]);
+initialisations : concat(initialisations, [(main_pnr_1 = -1)]);
+evolutions : concat(evolutions, [(main_nr_1 default main_pnr_1)]);
+initialisations : concat(initialisations, [(main_v_540 = -1)]);
+evolutions : concat(evolutions, [(main_ns_2_3 default main_v_540)]);
+initialisations : concat(initialisations, [(main_v_539 = 1)]);
+evolutions : concat(evolutions, [(main_ns_1_3 default main_v_539)]);
+initialisations : concat(initialisations, [(main_pnr = -1)]);
+evolutions : concat(evolutions, [(main_nr default main_pnr)]);
+main_v_249 : (not main_cx3);
+main_v_247 : (not main_cx2);
+main_v_246 : (not main_cx1);
+main_v_248 : (main_v_246 and main_v_247);
+main_v_250 : (main_v_248 and main_v_249);
+main_v_244 : (a_iminv(main_re, 0) + 1);
+main_v_245 : (not main_v_244);
+main_ruleOff : (main_v_245 or main_v_250);
+main_v_241 : (a_iminv(main_grave, 10) + 1);
+main_v_239 : (a_iminv(main_medio, 10) + 1);
+main_v_238 : (a_iminv(main_agudo, 10) + 1);
+main_v_240 : (main_v_238 and main_v_239);
+main_v_242 : (main_v_240 and main_v_241);
+main_v_236 : (not main_cx3);
+main_v_234 : (not main_cx2);
+main_v_235 : (main_cx1 and main_v_234);
+main_v_237 : (main_v_235 and main_v_236);
+main_v_243 : (main_v_237 and main_v_242);
+main_v_232 : (a_iminv(main_re, 1) + 1);
+main_v_233 : (not main_v_232);
+main_ruleClassic : (main_v_233 or main_v_243);
+main_v_251 : (main_ruleOff and main_ruleClassic);
+main_v_229 : (a_iminv(main_grave, 10) + 1);
+main_v_227 : (a_iminv(main_medio, 10) + 1);
+main_v_226 : (a_iminv(main_agudo, 50) + 1);
+main_v_228 : (main_v_226 and main_v_227);
+main_v_230 : (main_v_228 and main_v_229);
+main_v_224 : (not main_cx3);
+main_v_222 : (not main_cx1);
+main_v_223 : (main_v_222 and main_cx2);
+main_v_225 : (main_v_223 and main_v_224);
+main_v_231 : (main_v_225 and main_v_230);
+main_v_220 : (a_iminv(main_re, 2) + 1);
+main_v_221 : (not main_v_220);
+main_ruleElectron : (main_v_221 or main_v_231);
+main_v_252 : (main_v_251 and main_ruleElectron);
+main_v_217 : (a_inf(main_grave, 29) + 1);
+main_v_215 : (a_iminv(main_medio, 50) + 1);
+main_v_214 : (a_iminv(main_agudo, 50) + 1);
+main_v_216 : (main_v_214 and main_v_215);
+main_v_218 : (main_v_216 and main_v_217);
+main_v_211 : (not main_cx2);
+main_v_210 : (not main_cx1);
+main_v_212 : (main_v_210 and main_v_211);
+main_v_213 : (main_v_212 and main_cx3);
+main_v_219 : (main_v_213 and main_v_218);
+main_v_208 : (a_iminv(main_re, 3) + 1);
+main_v_209 : (not main_v_208);
+main_ruleFunk : (main_v_209 or main_v_219);
+main_v_253 : (main_v_252 and main_ruleFunk);
+main_v_205 : (a_iminv(main_grave, 100) + 1);
+main_v_203 : (a_iminv(main_medio, 50) + 1);
+main_v_202 : (a_iminv(main_agudo, 50) + 1);
+main_v_204 : (main_v_202 and main_v_203);
+main_v_206 : (main_v_204 and main_v_205);
+main_v_199 : (not main_cx1);
+main_v_200 : (main_v_199 and main_cx2);
+main_v_201 : (main_v_200 and main_cx3);
+main_v_207 : (main_v_201 and main_v_206);
+main_v_197 : (a_iminv(main_re, 4) + 1);
+main_v_198 : (not main_v_197);
+main_ruleIndie : (main_v_198 or main_v_207);
+main_v_254 : (main_v_253 and main_ruleIndie);
+main_v_194 : (a_iminv(main_grave, 100) + 1);
+main_v_192 : (a_iminv(main_medio, 100) + 1);
+main_v_191 : (a_iminv(main_agudo, 100) + 1);
+main_v_193 : (main_v_191 and main_v_192);
+main_v_195 : (main_v_193 and main_v_194);
+main_v_188 : (not main_cx2);
+main_v_189 : (main_cx1 and main_v_188);
+main_v_190 : (main_v_189 and main_cx3);
+main_v_196 : (main_v_190 and main_v_195);
+main_v_186 : (a_iminv(main_re, 5) + 1);
+main_v_187 : (not main_v_186);
+main_rulePOP : (main_v_187 or main_v_196);
+main_v_255 : (main_v_254 and main_rulePOP);
+main_v_183 : (a_iminv(main_grave, 100) + 1);
+main_v_181 : (a_iminv(main_medio, 100) + 1);
+main_v_180 : (a_iminv(main_agudo, 100) + 1);
+main_v_182 : (main_v_180 and main_v_181);
+main_v_184 : (main_v_182 and main_v_183);
+main_v_178 : (not main_cx3);
+main_v_177 : (main_cx1 and main_cx2);
+main_v_179 : (main_v_177 and main_v_178);
+main_v_185 : (main_v_179 and main_v_184);
+main_v_175 : (a_iminv(main_re, 6) + 1);
+main_v_176 : (not main_v_175);
+main_ruleRegue : (main_v_176 or main_v_185);
+main_v_256 : (main_v_255 and main_ruleRegue);
+main_v_172 : (a_iminv(main_grave, 100) + 1);
+main_v_170 : (a_iminv(main_medio, 100) + 1);
+main_v_169 : (a_iminv(main_agudo, 100) + 1);
+main_v_171 : (main_v_169 and main_v_170);
+main_v_173 : (main_v_171 and main_v_172);
+main_v_167 : (main_cx1 and main_cx2);
+main_v_168 : (main_v_167 and main_cx3);
+main_v_174 : (main_v_168 and main_v_173);
+main_v : (a_iminv(main_re, 7) + 1);
+main_v_166 : (not main_v);
+main_ruleRock : (main_v_166 or main_v_174);
+main_v_257 : (main_v_256 and main_ruleRock);
+main_assume : 1;
+main_guarantee : main_v_257;
+initialisations : concat(initialisations, [(main_error_state = 1)]);
+evolutions : concat(evolutions, [main_guarantee]);
+constraints : [((main_v_258^2) = 1), ((main_v_259^2) = 1), ((main_v_260^2)
+               = 1), ((main_v_261^2) = 1), ((main_v_262^2) = 1),
+               ((main_v_263^2) = 1), ((main_v_264^2) = 1), ((main_v_277^2)
+               = 1), ((main_v_278^2) = 1), ((main_v_279^2) = 1),
+               ((main_v_280^2) = 1), ((main_v_281^2) = 1), ((main_v_282^2)
+               = 1), ((main_v_283^2) = 1), ((main_v_296^2) = 1),
+               ((main_v_297^2) = 1), ((main_v_298^2) = 1), ((main_v_299^2)
+               = 1), ((main_v_300^2) = 1), ((main_v_301^2) = 1),
+               ((main_v_302^2) = 1), ((main_v_391^2) = 1), ((main_v_392^2)
+               = 1), ((main_v_393^2) = 1), ((main_v_394^2) = 1),
+               ((main_v_395^2) = 1), ((main_v_396^2) = 1), ((main_v_397^2)
+               = 1), ((main_v_315^2) = 1), ((main_v_316^2) = 1),
+               ((main_v_317^2) = 1), ((main_v_318^2) = 1), ((main_v_319^2)
+               = 1), ((main_v_320^2) = 1), ((main_v_321^2) = 1),
+               ((main_v_334^2) = 1), ((main_v_335^2) = 1), ((main_v_336^2)
+               = 1), ((main_v_337^2) = 1), ((main_v_338^2) = 1),
+               ((main_v_339^2) = 1), ((main_v_340^2) = 1), ((main_v_353^2)
+               = 1), ((main_v_354^2) = 1), ((main_v_355^2) = 1),
+               ((main_v_356^2) = 1), ((main_v_357^2) = 1), ((main_v_358^2)
+               = 1), ((main_v_359^2) = 1), ((main_v_372^2) = 1),
+               ((main_v_373^2) = 1), ((main_v_374^2) = 1), ((main_v_375^2)
+               = 1), ((main_v_376^2) = 1), ((main_v_377^2) = 1),
+               ((main_v_378^2) = 1), ((main_ceg2^2) = 1), ((main_ceg1^2)
+               = 1), ((main_cem2^2) = 1), ((main_cem1^2) = 1), ((main_cea2^2)
+               = 1), ((main_cea1^2) = 1), ((main_c3^2) = 1), ((main_c2^2)
+               = 1), ((main_c1^2) = 1), (main_assume = 1)];
+
+% --- outputs : [main_cx1, main_cx2, main_cx3, main_re, main_agudo,
+                 main_medio, main_grave] --- %
+main : processus(conditions, states, evolutions, initialisations,
+                 [gen(constraints)], controllables);
+main_init : initial(main);
+main : S_Security(main,B_True(main,main_error_state));
+dcs_result : equal(main_init,initial(main));
+if dcs_result then
+    print("main: synthesis succeeded.")
+else
+    print("main: synthesis failed.");
+
+if dcs_result then
+    print("Triangulation and controller generation...")
+else
+    quit(1);
+declare(p_main_ceg2, p_main_ceg1, p_main_cem2, p_main_cem1, p_main_cea2,
+        p_main_cea1, p_main_c3, p_main_c2, p_main_c1);
+phantom_vars : [p_main_ceg2, p_main_ceg1, p_main_cem2, p_main_cem1,
+                p_main_cea2, p_main_cea1, p_main_c3, p_main_c2, p_main_c1];
+main_triang : Triang(constraint(main),controllables,phantom_vars);
+controller_inputs : [main_v_258, main_v_259, main_v_260, main_v_261,
+                     main_v_262, main_v_263, main_v_264, main_v_277,
+                     main_v_278, main_v_279, main_v_280, main_v_281,
+                     main_v_282, main_v_283, main_v_296, main_v_297,
+                     main_v_298, main_v_299, main_v_300, main_v_301,
+                     main_v_302, main_v_391, main_v_392, main_v_393,
+                     main_v_394, main_v_395, main_v_396, main_v_397,
+                     main_v_315, main_v_316, main_v_317, main_v_318,
+                     main_v_319, main_v_320, main_v_321, main_v_334,
+                     main_v_335, main_v_336, main_v_337, main_v_338,
+                     main_v_339, main_v_340, main_v_353, main_v_354,
+                     main_v_355, main_v_356, main_v_357, main_v_358,
+                     main_v_359, main_v_372, main_v_373, main_v_374,
+                     main_v_375, main_v_376, main_v_377, main_v_378,
+                     main_v_611, main_v_610, main_v_609, main_pnr_6,
+                     main_ck_5_1, main_pnr_5, main_ck_7_1, main_pnr_4,
+                     main_ck_9_1, main_pnr_3, main_v_572, main_v_571,
+                     main_pnr_2, main_v_556, main_v_555, main_pnr_1,
+                     main_v_540, main_v_539, main_pnr, p_main_ceg2,
+                     p_main_ceg1, p_main_cem2, p_main_cem1, p_main_cea2,
+                     p_main_cea1, p_main_c3, p_main_c2, p_main_c1];
+heptagon_controller("main_controller.ept","main",controller_inputs,controllables,main_triang);
+
