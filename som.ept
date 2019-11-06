@@ -10,21 +10,38 @@ let
   end
  tel
 
- node equalisador(c1,c2:bool) returns(s:int)
+ node equalisador(down,up:bool) returns(s:int)
  let  
     automaton
+    state Verylow do
+      s = 1
+    until up then Low
+           (*up2 then Mid|
+           up3 then High|
+           up4 then Veryhigh*)
     state Low do
-      s = 10
-    unless not c1= true then Mid|
-           not c2 = true then High
+      s = 2
+    until  down then Verylow|
+            up then Mid
+            (*up2 then High|
+            up then Veryhigh*)
     state Mid do
-      s = 50
-    unless not c2 = true then High|
-           c1 = true then Low
+      s = 3
+    until  down then Low|
+            up then High
+            (*up2 then Veryhigh*)
     state High do
-      s = 100
-    unless c2 = true then Low|
-           c1 = true then Mid
+      s = 4
+    until  (*down3 then Verylow|
+            down2 then Low|*)
+            down then Mid|
+            up then Veryhigh
+    state Veryhigh do
+      s = 5
+    until  (*down4 then Veryhigh|
+            down3 then Low|
+            down2 then Mid|*)
+            down then High
   end
 tel
 
@@ -110,22 +127,50 @@ tel
 
 node main(tipo:int) returns(cx1,cx2,cx3:bool; res,agudo,medio,grave:int)
 contract
-    var ruleOff, ruleClassic, ruleElectron, ruleFunk, ruleIndie, rulePOP, ruleRegue, ruleRock: bool;
+    var (*ruleOff, ruleClassic1, ruleClassic2, ruleClassic3, ruleClassic4, ruleClassic5, ruleElectron1, ruleElectron2, ruleElectron3, ruleElectron4, ruleElectron5,*) ruleFunk1, ruleFunk2, ruleFunk3, ruleFunk4, ruleFunk5, ruleIndie1, ruleIndie2, ruleIndie3, ruleIndie4, ruleIndie5, rulePOP1, rulePOP2, rulePOP3, rulePOP4, rulePOP5, ruleRegue1, ruleRegue2, ruleRegue3, ruleRegue4, ruleRegue5, ruleRock1, ruleRock2, ruleRock3, ruleRock4, ruleRock5: bool;
     let 
-        ruleOff = not (res = 0) or (not cx1 & not cx2 & not cx3); (*All Off*)
-        ruleClassic = not (res = 1) or (cx1 & not cx2 & not cx3) & (agudo = 10 & medio = 10 & grave = 10); (*Classic*)
-        ruleElectron = not (re = 2) or (not cx1 & cx2 & not cx3) & (agudo = 50  & medio = 10 & grave = 10); (*Electron*)
-        ruleFunk = not (res = 3) or (not cx1 & not cx2 & cx3) & (agudo = 50 &  medio = 50 &  grave < 30); (*Funk*)
-        ruleIndie = not (res = 4) or (not cx1 & cx2 & cx3) & (agudo = 50 & medio = 50 & grave = 100); (*Indie*) 
-        rulePOP =  not (res = 5) or (cx1 & not cx2 & cx3) & (agudo = 100 &  medio = 100 & grave = 100); (*POP*)
-        ruleRegue = not (res = 6) or (cx1 & cx2 & not cx3) & (agudo = 100 & medio = 100 & grave = 100 ); (*Regue*)
-        ruleRock = not (res = 7) or (cx1 & cx2 & cx3) & (agudo = 100 & medio = 100 & grave = 100);(*Rock*)
+       (*) ruleOff = not (res = 0) or (not cx1 & not cx2 & not cx3); (*All Off*)
+        ruleClassic1 = not (res = 1) or (cx1 & not cx2 & not cx3) & (agudo = 1 & medio = 1 & grave = 1 ); (*Classic*)
+        ruleClassic2 = not (res = 2) or (cx1 & not cx2 & not cx3) & (agudo = 1 & medio = 1 & grave = 2 ); (*Classic*)
+        ruleClassic3 = not (res = 3) or (cx1 & not cx2 & not cx3) & (agudo = 1 & medio = 1 & grave = 3 ); (*Classic*)
+        ruleClassic4 = not (res = 4) or (cx1 & not cx2 & not cx3) & (agudo = 1 & medio = 1 & grave = 4 ); (*Classic*)
+        ruleClassic5 = not (res = 5) or (cx1 & not cx2 & not cx3) & (agudo = 1 & medio = 1 & grave = 5 ); (*Classic*)
+        ruleElectron1 = not (res = 6) or (not cx1 & cx2 & not cx3) & (agudo = 1 & medio = 2 & grave = 1 ); (*Electron*)
+        ruleElectron2 = not (res = 7) or (not cx1 & cx2 & not cx3) & (agudo = 1 & medio = 2 & grave = 2 ); (*Electron*)
+        ruleElectron3 = not (res = 8) or (not cx1 & cx2 & not cx3) & (agudo = 1 & medio = 2 & grave = 3 ); (*Electron*)
+        ruleElectron4 = not (res = 9) or (not cx1 & cx2 & not cx3) & (agudo = 1 & medio = 2 & grave = 4 ); (*Electron*)
+        ruleElectron5 = not (res = 10) or (not cx1 & cx2 & not cx3) & (agudo = 1 & medio = 2 & grave = 5 ); (*Electron*)*)
+        ruleFunk1 = not (res = 11) or (not cx1 & not cx2 & cx3) & (agudo = 1 &  medio = 3 &  grave < 1 ); (*Funk*)
+        ruleFunk2 = not (res = 12) or (not cx1 & not cx2 & cx3) & (agudo = 1 &  medio = 3 &  grave < 2 ); (*Funk*)
+        ruleFunk3 = not (res = 13) or (not cx1 & not cx2 & cx3) & (agudo = 1 &  medio = 3 &  grave < 3 ); (*Funk*)
+        ruleFunk4 = not (res = 14) or (not cx1 & not cx2 & cx3) & (agudo = 1 &  medio = 3 &  grave < 4 ); (*Funk*)
+        ruleFunk5 = not (res = 15) or (not cx1 & not cx2 & cx3) & (agudo = 1 &  medio = 3 &  grave < 5 ); (*Funk*)
+        ruleIndie1 = not (res = 16) or (not cx1 & cx2 & cx3) & (agudo = 1 & medio = 4 & grave < 1 ); (*Indie*) 
+        ruleIndie2 = not (res = 17) or (not cx1 & cx2 & cx3) & (agudo = 1 & medio = 4 & grave < 2 ); (*Indie*) 
+        ruleIndie3 = not (res = 18) or (not cx1 & cx2 & cx3) & (agudo = 1 & medio = 4 & grave < 3 ); (*Indie*) 
+        ruleIndie4 = not (res = 19) or (not cx1 & cx2 & cx3) & (agudo = 1 & medio = 4 & grave < 4 ); (*Indie*)
+        ruleIndie5 = not (res = 20) or (not cx1 & cx2 & cx3) & (agudo = 1 & medio = 4 & grave < 5 ); (*Indie*)
+        rulePOP1 =  not (res = 21) or (cx1 & not cx2 & cx3) & (agudo = 1 &  medio = 5 & grave < 1 ); (*POP*)
+        rulePOP2 =  not (res = 22) or (cx1 & not cx2 & cx3) & (agudo = 1 &  medio = 5 & grave < 2 ); (*POP*)
+        rulePOP3 =  not (res = 23) or (cx1 & not cx2 & cx3) & (agudo = 1 &  medio = 5 & grave < 3 ); (*POP*)
+        rulePOP4 =  not (res = 24) or (cx1 & not cx2 & cx3) & (agudo = 1 &  medio = 5 & grave < 4 ); (*POP*)
+        rulePOP5 =  not (res = 25) or (cx1 & not cx2 & cx3) & (agudo = 1 &  medio = 5 & grave < 5 ); (*POP*)
+        ruleRegue1 = not (res = 26) or (cx1 & cx2 & not cx3) & (agudo = 2 & medio = 1 & grave <  1 ); (*Regue*)
+        ruleRegue2 = not (res = 27) or (cx1 & cx2 & not cx3) & (agudo = 2 & medio = 1 & grave <  2 ); (*Regue*)
+        ruleRegue3 = not (res = 28) or (cx1 & cx2 & not cx3) & (agudo = 2 & medio = 1 & grave <  3 ); (*Regue*)
+        ruleRegue4 = not (res = 29) or (cx1 & cx2 & not cx3) & (agudo = 2 & medio = 1 & grave <  4 ); (*Regue*)
+        ruleRegue5 = not (res = 30) or (cx1 & cx2 & not cx3) & (agudo = 2 & medio = 1 & grave <  5 ); (*Regue*)
+        ruleRock1 = not (res = 31) or (cx1 & cx2 & cx3) & (agudo = 3 & medio = 2 & grave < 1 );(*Rock*)
+        ruleRock2 = not (res = 32) or (cx1 & cx2 & cx3) & (agudo = 3 & medio = 2 & grave < 2 );(*Rock*)
+        ruleRock3 = not (res = 33) or (cx1 & cx2 & cx3) & (agudo = 3 & medio = 2 & grave < 3 );(*Rock*)
+        ruleRock4 = not (res = 34) or (cx1 & cx2 & cx3) & (agudo = 3 & medio = 2 & grave < 4 );(*Rock*)
+        ruleRock5 = not (res = 35) or (cx1 & cx2 & cx3) & (agudo = 3 & medio = 2 & grave < 5 );(*Rock*)
     tel
-    enforce ruleOff & ruleClassic & ruleElectron & ruleFunk & ruleIndie & rulePOP & ruleRegue & ruleRock 
+    enforce (*ruleOff & ruleClassic1 & ruleClassic2 & ruleClassic3 & ruleClassic4 & ruleClassic5 & ruleElectron1 & ruleElectron2 & ruleElectron3 & ruleElectron4 & ruleElectron5 &*) ruleFunk1 & ruleFunk2 & ruleFunk3 & ruleFunk4 & ruleFunk5 & ruleIndie1 & ruleIndie2 & ruleIndie3 & ruleIndie4 & ruleIndie5 & rulePOP1 & rulePOP2 & rulePOP3 & rulePOP4 & rulePOP5 & ruleRegue1 & ruleRegue2 & ruleRegue3 & ruleRegue4 & ruleRegue5 & ruleRock1 & ruleRock2 & ruleRock3 & ruleRock4 & ruleRock5  
     with (c1,c2,c3,cea1,cea2,cem1,cem2,ceg1,ceg2:bool)
 
 let 
-    re = inlined music(tipo);
+    res = inlined music(tipo);
     cx1 = inlined caixa(c1);
     cx2 = inlined caixa(c2);
     cx3 = inlined caixa(c3);
