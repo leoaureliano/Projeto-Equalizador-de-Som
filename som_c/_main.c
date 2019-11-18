@@ -1,4 +1,4 @@
-/* --- Generated the 17/11/2019 at 21:34 --- */
+/* --- Generated the 18/11/2019 at 8:42 --- */
 /* --- heptagon compiler, version 1.03.00 (compiled thu. may. 3 2:35:29 CET 2018) --- */
 /* --- Command line: /usr/local/bin/heptc -target c -target z3z -s main som.ept --- */
 
@@ -20,6 +20,7 @@ int main(int argc, char** argv) {
   int downg;
   int upv;
   int downv;
+  int hora;
   Som__main_out _res;
   step_c = 0;
   step_max = 0;
@@ -56,8 +57,11 @@ int main(int argc, char** argv) {
     
     printf("downv ? ");
     scanf("%d", &downv);;
+    
+    printf("hora ? ");
+    scanf("%d", &hora);;
     Som__main_step(tipo, upa, downa, upm, downm, upg, downg, upv, downv,
-                   &_res, &mem);
+                   hora, &_res, &mem);
     printf("=> ");
     printf("%d ", _res.cx1);
     printf("=> ");
@@ -74,6 +78,8 @@ int main(int argc, char** argv) {
     printf("%d ", _res.grave);
     printf("=> ");
     printf("%d ", _res.volume);
+    printf("=> ");
+    printf("%d ", _res.madrug);
     puts("");
     fflush(stdout);
   };
