@@ -18,7 +18,7 @@ node madrugada(hora:int) returns(madrug:bool)
      unless hora >= 22 then Madrugada
     state Madrugada do 
       madrug = true;
-    unless  hora < 6 then NaoMadrugada
+    unless  hora >= 6 then NaoMadrugada
   end
 tel
 

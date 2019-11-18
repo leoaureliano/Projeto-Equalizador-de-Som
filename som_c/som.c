@@ -1,4 +1,4 @@
-/* --- Generated the 18/11/2019 at 8:42 --- */
+/* --- Generated the 18/11/2019 at 9:15 --- */
 /* --- heptagon compiler, version 1.03.00 (compiled thu. may. 3 2:35:29 CET 2018) --- */
 /* --- Command line: /usr/local/bin/heptc -target c -target z3z -s main som.ept --- */
 
@@ -101,7 +101,7 @@ void Som__madrugada_step(int hora, Som__madrugada_out* _out,
   int r;
   int nr;
   if (self->ck_1) {
-    v = (hora<6);
+    v = (hora>=6);
     if (v) {
       r_St_1_Madrugada = true;
     } else {
@@ -6791,7 +6791,7 @@ void Som__main_step(int tipo, int upa, int downa, int upm, int downm,
   ck_2 = self->v_1068;
   ck_3 = self->v_1069;
   if (self->ck_20_1) {
-    v_738 = (hora_1<6);
+    v_738 = (hora_1>=6);
     if (v_738) {
       r_St_4_Madrugada = true;
     } else {

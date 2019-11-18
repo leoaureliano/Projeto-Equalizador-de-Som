@@ -72,7 +72,7 @@ let
   v_1 = ((hora when false(ck_1)) >= 22);
   r_St_1_Madrugada = if v then true else (pnr when true(ck_1));
   s_St_1_Madrugada_1 = if v then false else true;
-  v = ((hora when true(ck_1)) < 6);
+  v = ((hora when true(ck_1)) >= 6);
   s_1 =
     merge ck_1 (true -> s_St_1_Madrugada_1)(false -> s_St_1_NaoMadrugada_1);
   r = merge ck_1 (true -> r_St_1_Madrugada)(false -> r_St_1_NaoMadrugada)
@@ -3251,7 +3251,7 @@ contract
     v_739 = ((hora_1 when false(ck_20_1)) >= 22);
     r_St_4_Madrugada = if v_738 then true else (pnr when true(ck_20_1));
     s_5_St_4_Madrugada_1 = if v_738 then false else true;
-    v_738 = ((hora_1 when true(ck_20_1)) < 6);
+    v_738 = ((hora_1 when true(ck_20_1)) >= 6);
     s_5_1 =
       merge ck_20_1
         (true -> s_5_St_4_Madrugada_1)(false -> s_5_St_4_NaoMadrugada_1);
