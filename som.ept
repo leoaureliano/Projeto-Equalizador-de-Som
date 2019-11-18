@@ -10,40 +10,17 @@ let
   end
  tel
 
-(*node volume(down,down2,down3,down4,up,up2,up3,up4:bool) returns(s:int)
- let  
+node hora(permitido,chora:bool) returns(t:int)
+ let
     automaton
-    state Vol1 do
-      s = 1
-    unless up then Vol2|
-           up2 then Vol3|
-           up3 then Vol4|
-           up4 then Vol5
-    state Vol2 do
-      s = 2
-    unless  down then Vol1|
-            up then Vol3|
-            up2 then Vol4|
-            up3 then Vol5
-    state Vol3 do
-      s = 3
-    unless  down2 then Vol1|
-            down then Vol2|
-            up then Vol4|
-            up2 then Vol5
-    state Vol4 do
-      s = 4
-    unless  down3 then Vol1|
-            down2 then Vol2
-            down then Vol3|
-            up then Vol5
-    state Vol5 do
-      s = 5
-    unless  down4 then Vol1|
-            down3 then Vol2|
-            down2 then Vol3|
-            down then Vol4
-  end*)
+    state Livre do
+      t = 1
+     unless permitido  & chora then Limitado
+    state Limitado do 
+      t = 2
+    unless  permitido & chora then Livre
+  end
+tel
 
  node equalisador(cvl,clo,cmi,chi,cvh,c,up,down:bool) returns(s:int)
  let  
@@ -161,9 +138,9 @@ let
     end
 tel
 
-node main(tipo:int; upa,downa,upm,downm,upg,downg:bool) returns(cx1,cx2,cx3:bool; res:int; agudo,medio,grave:int)
+node main(tipo:int; upa,downa,upm,downm,upg,downg,upv,downv:bool) returns(cx1,cx2,cx3:bool; res:int; agudo,medio,grave,volume:int)
 contract
-    var ruleOff, ruleClassic, ruleElectron, ruleFunk, ruleIndie, rulePOP, ruleRegue, ruleRock: bool;
+    var ruleOff, ruleClassic, ruleElectron, ruleFunk, ruleIndie, rulePOP, ruleRegue, ruleRock,ruleVol: bool;
     let
         ruleOff = not (res = 0) or (not cx1 & not cx2 & not cx3) & (agudo = 1 & medio = 1 & grave = 1); (*All Off*)
         ruleClassic = not (res = 1) or (cx1 & not cx2 & not cx3) & (agudo >= 1 & medio = 1 & grave = 1 ); (*Classic*)
@@ -173,9 +150,10 @@ contract
         rulePOP =  not (res = 5) or (cx1 & not cx2 & cx3) & (agudo = 1 &  medio = 5 & grave <= 3 ); (*POP*)
         ruleRegue = not (res = 6) or (cx1 & cx2 & not cx3) & (agudo >= 2 & medio >= 1 & grave = 1 ); (*Regue*)
         ruleRock = not (res = 7) or (cx1 & cx2 & cx3) & (agudo >= 1 & medio >= 1 & grave >= 1 );(*Rock*)
+        ruleVol = not (volume >= 2);  
     tel
-    enforce ruleOff  & ruleClassic & ruleElectron & ruleFunk & ruleIndie & rulePOP & ruleRegue & ruleRock
-    with (c1,c2,c3,ca1,ca2,ca3,ca4,ca5,ca,cm1,cm2,cm3,cm4,cm5,cm,cg1,cg2,cg3,cg4,cg5,cg:bool)
+    enforce ruleOff  & ruleClassic & ruleElectron & ruleFunk & ruleIndie & rulePOP & ruleRegue & ruleRock & ruleVol
+    with (c1,c2,c3,ca1,ca2,ca3,ca4,ca5,ca,cm1,cm2,cm3,cm4,cm5,cm,cg1,cg2,cg3,cg4,cg5,cg,vol1,vol2,vol3,vol4,vol5,cvol:bool)
 
 let
     res = inlined music(tipo);
@@ -185,5 +163,5 @@ let
     agudo = inlined equalisador(ca1,ca2,ca3,ca4,ca5,ca,upa,downa);
     medio = inlined equalisador(cm1,cm2,cm3,cm4,cm5,cm,upm,downm);
     grave = inlined equalisador(cg1,cg2,cg3,cg4,cg5,cg,upg,downg);
-    (*volume = inlined volume(down,down2,down3,down4,up,up2,up3,up4);*)
+    volume = inlined equalisador(vol1,vol2,vol3,vol4,vol5,cvol,upv,downv);
 tel
