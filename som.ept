@@ -15,7 +15,7 @@ node hora(permitido,chora:bool) returns(t:int)
     automaton
     state Livre do
       t = 1
-     unless permitido  & chora then Limitado
+     unless not permitido  & chora then Limitado
     state Limitado do 
       t = 2
     unless  permitido & chora then Livre
@@ -150,10 +150,11 @@ contract
         rulePOP =  not (res = 5) or (cx1 & not cx2 & cx3) & (agudo = 1 &  medio = 5 & grave <= 3 ); (*POP*)
         ruleRegue = not (res = 6) or (cx1 & cx2 & not cx3) & (agudo >= 2 & medio >= 1 & grave = 1 ); (*Regue*)
         ruleRock = not (res = 7) or (cx1 & cx2 & cx3) & (agudo >= 1 & medio >= 1 & grave >= 1 );(*Rock*)
-        ruleVol = not (volume >= 2);  
+        ruleVol = not (volume >= 2); 
+        (*ruleVol = not (hora & volume <=2) or (volume >=1)*) 
     tel
     enforce ruleOff  & ruleClassic & ruleElectron & ruleFunk & ruleIndie & rulePOP & ruleRegue & ruleRock & ruleVol
-    with (c1,c2,c3,ca1,ca2,ca3,ca4,ca5,ca,cm1,cm2,cm3,cm4,cm5,cm,cg1,cg2,cg3,cg4,cg5,cg,vol1,vol2,vol3,vol4,vol5,cvol:bool)
+    with (c1,c2,c3,ca1,ca2,ca3,ca4,ca5,ca,cm1,cm2,cm3,cm4,cm5,cm,cg1,cg2,cg3,cg4,cg5,cg,vol1,vol2,vol3,vol4,vol5,cvol(*,chora*):bool)
 
 let
     res = inlined music(tipo);
@@ -164,4 +165,5 @@ let
     medio = inlined equalisador(cm1,cm2,cm3,cm4,cm5,cm,upm,downm);
     grave = inlined equalisador(cg1,cg2,cg3,cg4,cg5,cg,upg,downg);
     volume = inlined equalisador(vol1,vol2,vol3,vol4,vol5,cvol,upv,downv);
+    (*hora = inlinned hora(p,chora);*)
 tel
