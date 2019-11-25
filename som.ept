@@ -160,9 +160,16 @@ let
     cx1 = inlined caixa(c1);
     cx2 = inlined caixa(c2);
     cx3 = inlined caixa(c3);
+<<<<<<< HEAD
     agudo = inlined equalizador(ca1,ca2,ca3,ca4,ca5,ca,upa,downa);
     medio = inlined equalizador(cm1,cm2,cm3,cm4,cm5,cm,upm,downm);
     grave = inlined equalizador(cg1,cg2,cg3,cg4,cg5,cg,upg,downg);
     volume = inlined equalizador(vol1,vol2,vol3,vol4,vol5,cvol,upv,downv);
+=======
+    agudo = inlined equalisador(ca1,ca2,ca3,ca4,ca5,ca,upa,downa);
+    medio = inlined equalisador(cm1,cm2,cm3,cm4,cm5,cm,upm,downm);
+    grave = inlined equalisador(cg1,cg2,cg3,cg4,cg5,cg,upg,downg);
+    volume = inlined equalisador(vol1,vol2,vol3,vol4,vol5,cvol,upv,downv);
+>>>>>>> 05b5256ae5305638d8072e36502413e69e00f23d
     madrug = inlined madrugada(hora);
 tel

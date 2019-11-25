@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* --- Generated the 24/11/2019 at 23:16 --- */
+=======
+/* --- Generated the 18/11/2019 at 9:15 --- */
+>>>>>>> 05b5256ae5305638d8072e36502413e69e00f23d
 /* --- heptagon compiler, version 1.03.00 (compiled thu. may. 3 2:35:29 CET 2018) --- */
 /* --- Command line: /usr/local/bin/heptc -target c -target z3z -s main som.ept --- */
 
@@ -34,7 +38,11 @@ void Som__madrugada_reset(Som__madrugada_mem* self);
 void Som__madrugada_step(int hora, Som__madrugada_out* _out,
                          Som__madrugada_mem* self);
 
+<<<<<<< HEAD
 typedef struct Som__equalizador_mem {
+=======
+typedef struct Som__equalisador_mem {
+>>>>>>> 05b5256ae5305638d8072e36502413e69e00f23d
   int v_767;
   int v_766;
   int v_765;
