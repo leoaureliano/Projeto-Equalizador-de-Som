@@ -1,4 +1,4 @@
-/* --- Generated the 17/11/2019 at 21:34 --- */
+/* --- Generated the 24/11/2019 at 23:16 --- */
 /* --- heptagon compiler, version 1.03.00 (compiled thu. may. 3 2:35:29 CET 2018) --- */
 /* --- Command line: /usr/local/bin/heptc -target c -target z3z -s main som.ept --- */
 
@@ -10,14 +10,23 @@
 #include "pervasives.h"
 #include "main_controller.h"
 typedef enum {
-  Som__St_11_Rock,
-  Som__St_11_Regue,
-  Som__St_11_POP,
+  Som__St_12_Rock,
+  Som__St_12_Regue,
+  Som__St_12_POP,
+  Som__St_12_Off,
+  Som__St_12_Indie,
+  Som__St_12_Funk,
+  Som__St_12_Electronic,
+  Som__St_12_Classic
+} Som__st_12;
+
+Som__st_12 Som__st_12_of_string(char* s);
+
+char* string_of_Som__st_12(Som__st_12 x, char* buf);
+
+typedef enum {
   Som__St_11_Off,
-  Som__St_11_Indie,
-  Som__St_11_Funk,
-  Som__St_11_Electronic,
-  Som__St_11_Classic
+  Som__St_11_ON
 } Som__st_11;
 
 Som__st_11 Som__st_11_of_string(char* s);
@@ -43,8 +52,11 @@ Som__st_9 Som__st_9_of_string(char* s);
 char* string_of_Som__st_9(Som__st_9 x, char* buf);
 
 typedef enum {
-  Som__St_8_Off,
-  Som__St_8_ON
+  Som__St_8_Verylow,
+  Som__St_8_Veryhigh,
+  Som__St_8_Mid,
+  Som__St_8_Low,
+  Som__St_8_High
 } Som__st_8;
 
 Som__st_8 Som__st_8_of_string(char* s);
@@ -88,11 +100,8 @@ Som__st_5 Som__st_5_of_string(char* s);
 char* string_of_Som__st_5(Som__st_5 x, char* buf);
 
 typedef enum {
-  Som__St_4_Verylow,
-  Som__St_4_Veryhigh,
-  Som__St_4_Mid,
-  Som__St_4_Low,
-  Som__St_4_High
+  Som__St_4_NaoMadrugada,
+  Som__St_4_Madrugada
 } Som__st_4;
 
 Som__st_4 Som__st_4_of_string(char* s);
@@ -127,8 +136,8 @@ Som__st_2 Som__st_2_of_string(char* s);
 char* string_of_Som__st_2(Som__st_2 x, char* buf);
 
 typedef enum {
-  Som__St_1_Livre,
-  Som__St_1_Limitado
+  Som__St_1_NaoMadrugada,
+  Som__St_1_Madrugada
 } Som__st_1;
 
 Som__st_1 Som__st_1_of_string(char* s);

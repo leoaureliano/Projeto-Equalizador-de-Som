@@ -1,4 +1,4 @@
-/* --- Generated the 17/11/2019 at 21:34 --- */
+/* --- Generated the 24/11/2019 at 23:16 --- */
 /* --- heptagon compiler, version 1.03.00 (compiled thu. may. 3 2:35:29 CET 2018) --- */
 /* --- Command line: /usr/local/bin/heptc -target c -target z3z -s main som.ept --- */
 
@@ -7,58 +7,81 @@
 #include <stdlib.h>
 #include "som_types.h"
 
+Som__st_12 Som__st_12_of_string(char* s) {
+  if ((strcmp(s, "St_12_Rock")==0)) {
+    return Som__St_12_Rock;
+  };
+  if ((strcmp(s, "St_12_Regue")==0)) {
+    return Som__St_12_Regue;
+  };
+  if ((strcmp(s, "St_12_POP")==0)) {
+    return Som__St_12_POP;
+  };
+  if ((strcmp(s, "St_12_Off")==0)) {
+    return Som__St_12_Off;
+  };
+  if ((strcmp(s, "St_12_Indie")==0)) {
+    return Som__St_12_Indie;
+  };
+  if ((strcmp(s, "St_12_Funk")==0)) {
+    return Som__St_12_Funk;
+  };
+  if ((strcmp(s, "St_12_Electronic")==0)) {
+    return Som__St_12_Electronic;
+  };
+  if ((strcmp(s, "St_12_Classic")==0)) {
+    return Som__St_12_Classic;
+  };
+}
+
+char* string_of_Som__st_12(Som__st_12 x, char* buf) {
+  switch (x) {
+    case Som__St_12_Rock:
+      strcpy(buf, "St_12_Rock");
+      break;
+    case Som__St_12_Regue:
+      strcpy(buf, "St_12_Regue");
+      break;
+    case Som__St_12_POP:
+      strcpy(buf, "St_12_POP");
+      break;
+    case Som__St_12_Off:
+      strcpy(buf, "St_12_Off");
+      break;
+    case Som__St_12_Indie:
+      strcpy(buf, "St_12_Indie");
+      break;
+    case Som__St_12_Funk:
+      strcpy(buf, "St_12_Funk");
+      break;
+    case Som__St_12_Electronic:
+      strcpy(buf, "St_12_Electronic");
+      break;
+    case Som__St_12_Classic:
+      strcpy(buf, "St_12_Classic");
+      break;
+    default:
+      break;
+  };
+  return buf;
+}
+
 Som__st_11 Som__st_11_of_string(char* s) {
-  if ((strcmp(s, "St_11_Rock")==0)) {
-    return Som__St_11_Rock;
-  };
-  if ((strcmp(s, "St_11_Regue")==0)) {
-    return Som__St_11_Regue;
-  };
-  if ((strcmp(s, "St_11_POP")==0)) {
-    return Som__St_11_POP;
-  };
   if ((strcmp(s, "St_11_Off")==0)) {
     return Som__St_11_Off;
   };
-  if ((strcmp(s, "St_11_Indie")==0)) {
-    return Som__St_11_Indie;
-  };
-  if ((strcmp(s, "St_11_Funk")==0)) {
-    return Som__St_11_Funk;
-  };
-  if ((strcmp(s, "St_11_Electronic")==0)) {
-    return Som__St_11_Electronic;
-  };
-  if ((strcmp(s, "St_11_Classic")==0)) {
-    return Som__St_11_Classic;
+  if ((strcmp(s, "St_11_ON")==0)) {
+    return Som__St_11_ON;
   };
 }
 
 char* string_of_Som__st_11(Som__st_11 x, char* buf) {
   switch (x) {
-    case Som__St_11_Rock:
-      strcpy(buf, "St_11_Rock");
-      break;
-    case Som__St_11_Regue:
-      strcpy(buf, "St_11_Regue");
-      break;
-    case Som__St_11_POP:
-      strcpy(buf, "St_11_POP");
-      break;
     case Som__St_11_Off:
       strcpy(buf, "St_11_Off");
       break;
-    case Som__St_11_Indie:
-      strcpy(buf, "St_11_Indie");
-      break;
-    case Som__St_11_Funk:
-      strcpy(buf, "St_11_Funk");
-      break;
-    case Som__St_11_Electronic:
-      strcpy(buf, "St_11_Electronic");
-      break;
-    case Som__St_11_Classic:
-      strcpy(buf, "St_11_Classic");
+    case Som__St_11_ON:
+      strcpy(buf, "St_11_ON");
       break;
     default:
       break;
@@ -113,21 +136,39 @@ char* string_of_Som__st_9(Som__st_9 x, char* buf) {
 }
 
 Som__st_8 Som__st_8_of_string(char* s) {
-  if ((strcmp(s, "St_8_Off")==0)) {
-    return Som__St_8_Off;
+  if ((strcmp(s, "St_8_Verylow")==0)) {
+    return Som__St_8_Verylow;
   };
-  if ((strcmp(s, "St_8_ON")==0)) {
-    return Som__St_8_ON;
+  if ((strcmp(s, "St_8_Veryhigh")==0)) {
+    return Som__St_8_Veryhigh;
+  };
+  if ((strcmp(s, "St_8_Mid")==0)) {
+    return Som__St_8_Mid;
+  };
+  if ((strcmp(s, "St_8_Low")==0)) {
+    return Som__St_8_Low;
+  };
+  if ((strcmp(s, "St_8_High")==0)) {
+    return Som__St_8_High;
   };
 }
 
 char* string_of_Som__st_8(Som__st_8 x, char* buf) {
   switch (x) {
-    case Som__St_8_Off:
-      strcpy(buf, "St_8_Off");
+    case Som__St_8_Verylow:
+      strcpy(buf, "St_8_Verylow");
       break;
-    case Som__St_8_ON:
-      strcpy(buf, "St_8_ON");
+    case Som__St_8_Veryhigh:
+      strcpy(buf, "St_8_Veryhigh");
+      break;
+    case Som__St_8_Mid:
+      strcpy(buf, "St_8_Mid");
+      break;
+    case Som__St_8_Low:
+      strcpy(buf, "St_8_Low");
+      break;
+    case Som__St_8_High:
+      strcpy(buf, "St_8_High");
       break;
     default:
       break;
@@ -259,39 +300,21 @@ char* string_of_Som__st_5(Som__st_5 x, char* buf) {
 }
 
 Som__st_4 Som__st_4_of_string(char* s) {
-  if ((strcmp(s, "St_4_Verylow")==0)) {
-    return Som__St_4_Verylow;
+  if ((strcmp(s, "St_4_NaoMadrugada")==0)) {
+    return Som__St_4_NaoMadrugada;
   };
-  if ((strcmp(s, "St_4_Veryhigh")==0)) {
-    return Som__St_4_Veryhigh;
-  };
-  if ((strcmp(s, "St_4_Mid")==0)) {
-    return Som__St_4_Mid;
-  };
-  if ((strcmp(s, "St_4_Low")==0)) {
-    return Som__St_4_Low;
-  };
-  if ((strcmp(s, "St_4_High")==0)) {
-    return Som__St_4_High;
+  if ((strcmp(s, "St_4_Madrugada")==0)) {
+    return Som__St_4_Madrugada;
   };
 }
 
 char* string_of_Som__st_4(Som__st_4 x, char* buf) {
   switch (x) {
-    case Som__St_4_Verylow:
-      strcpy(buf, "St_4_Verylow");
+    case Som__St_4_NaoMadrugada:
+      strcpy(buf, "St_4_NaoMadrugada");
       break;
-    case Som__St_4_Veryhigh:
-      strcpy(buf, "St_4_Veryhigh");
-      break;
-    case Som__St_4_Mid:
-      strcpy(buf, "St_4_Mid");
-      break;
-    case Som__St_4_Low:
-      strcpy(buf, "St_4_Low");
-      break;
-    case Som__St_4_High:
-      strcpy(buf, "St_4_High");
+    case Som__St_4_Madrugada:
+      strcpy(buf, "St_4_Madrugada");
       break;
     default:
       break;
@@ -400,21 +423,21 @@ char* string_of_Som__st_2(Som__st_2 x, char* buf) {
 }
 
 Som__st_1 Som__st_1_of_string(char* s) {
-  if ((strcmp(s, "St_1_Livre")==0)) {
-    return Som__St_1_Livre;
+  if ((strcmp(s, "St_1_NaoMadrugada")==0)) {
+    return Som__St_1_NaoMadrugada;
   };
-  if ((strcmp(s, "St_1_Limitado")==0)) {
-    return Som__St_1_Limitado;
+  if ((strcmp(s, "St_1_Madrugada")==0)) {
+    return Som__St_1_Madrugada;
   };
 }
 
 char* string_of_Som__st_1(Som__st_1 x, char* buf) {
   switch (x) {
-    case Som__St_1_Livre:
-      strcpy(buf, "St_1_Livre");
+    case Som__St_1_NaoMadrugada:
+      strcpy(buf, "St_1_NaoMadrugada");
       break;
-    case Som__St_1_Limitado:
-      strcpy(buf, "St_1_Limitado");
+    case Som__St_1_Madrugada:
+      strcpy(buf, "St_1_Madrugada");
       break;
     default:
       break;
